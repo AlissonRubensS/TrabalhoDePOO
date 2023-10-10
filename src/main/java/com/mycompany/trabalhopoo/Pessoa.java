@@ -13,18 +13,17 @@ public class Pessoa {
     private String name;
     private CPF cpf;
     private Data birth_date;
-    private String email;
+    private Email email;
     private String password;
 
     public Pessoa(){
         super();
     }
     
-    public Pessoa(String name, CPF cpf, Data birth_date, String email, String password){
+    public Pessoa(String name, CPF cpf, Data birth_date, Email email, String password){
         this.setName(name);
         this.setCpf(cpf);
         this.setBirth_date(birth_date);
-        this.setEmail(email);
         this.setEmail(email);
     }
     
@@ -62,11 +61,11 @@ public class Pessoa {
         this.birth_date = birth_date;
     }
 
-    public String getEmail() {
+    public Email getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(Email email) {
         this.email = email;
     }
 
