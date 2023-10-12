@@ -10,20 +10,20 @@ package com.mycompany.trabalhopoo;
  */
 public class Pessoa {
     private int id;
-    private String name;
+    private String nome;
     private CPF cpf;
-    private Data birth_date;
+    private Data data_nasc;
     private Email email;
-    private String password;
+    private String senha;
 
     public Pessoa(){
         super();
     }
     
-    public Pessoa(String name, CPF cpf, Data birth_date, Email email, String password){
-        this.setName(name);
+    public Pessoa(String nome, CPF cpf, Data data_nasc, Email email, String senha){
+        this.setNome(nome);
         this.setCpf(cpf);
-        this.setBirth_date(birth_date);
+        this.setDataNasc(data_nasc);;
         this.setEmail(email);
     }
     
@@ -35,13 +35,13 @@ public class Pessoa {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        if(name != null){
-            this.name = name;
+    public void setNome(String nome) {
+        if(nome != null){
+            this.nome = nome;
         }
     }
 
@@ -53,12 +53,12 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    public Data getBirth_date() {
-        return birth_date;
+    public Data getDataNasc() {
+        return data_nasc;
     }
 
-    public void setBirth_date(Data birth_date) {
-        this.birth_date = birth_date;
+    public void setDataNasc(Data data_nasc) {
+        this.data_nasc = data_nasc;
     }
 
     public Email getEmail() {
@@ -70,11 +70,11 @@ public class Pessoa {
     }
 
     public String getPassword() {
-        return password;
+        return senha;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String senha) {
+        this.senha = senha;
     }
     
     

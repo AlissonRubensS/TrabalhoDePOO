@@ -9,8 +9,16 @@ package com.mycompany.trabalhopoo;
  * @author Adailton
  */
 public class Docente extends Funcionario{
+    Chamado novo_chamado = new Chamado();
     //falta desenvolver
     public Chamado excluirChamado(Chamado id){
+        return id;
+    }
+    public Chamado criarChamado(){
+        Chamado novo_chamado = new Chamado();
+        return novo_chamado;
+    }
+    public Chamado editarChamado(Chamado id){
         return id;
     }
 }

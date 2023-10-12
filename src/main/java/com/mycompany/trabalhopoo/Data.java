@@ -29,7 +29,7 @@ public class Data {
         mes = (aux[1].length() == 1)?Character.getNumericValue(aux[1].charAt(0)) : Character.getNumericValue(aux[1].charAt(0)) * 10 + Character.getNumericValue(aux[1].charAt(1));
         ano = (aux[2].length() == 4)?Character.getNumericValue(aux[2].charAt(0)) * 1000 + Character.getNumericValue(aux[2].charAt(1)) * 100 + Character.getNumericValue(aux[2].charAt(2)) * 10 + Character.getNumericValue(aux[2].charAt(3)): 0 ;
         
-        if (dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12 && ano != 0) {
+        if (dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12 && ano >= 1920) {
             this.data = data;
             this.dia = dia;
             this.mes = mes;
@@ -70,7 +70,7 @@ public class Data {
     }
 
     public void setAno(int ano) {
-        if(ano >= 1000){
+        if(ano >= 1920){
             this.ano = ano;
         }
     }

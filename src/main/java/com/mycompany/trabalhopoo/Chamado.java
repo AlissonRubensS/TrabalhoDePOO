@@ -14,7 +14,7 @@ public class Chamado {
     private String local;
     private String objeto;
     private Categoria tipo_chamdo;
-    private String descicao;
+    private String descricao;
 
     public int getId() {
         return id;
@@ -62,11 +62,11 @@ public class Chamado {
         this.tipo_chamdo = tipo_chamdo;
     }
 
-    public String getDescicao() {
-        return descicao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescicao(String descicao) {
-        this.descicao = descicao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }
