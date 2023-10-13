@@ -1,4 +1,4 @@
-package com.mycompany.trabalhopoo;
+package com.mycompany.trabalhopoo.Model;
 
 public class Administrador {
     public boolean cadastrarFuncionario(Funcionario funcionario) {

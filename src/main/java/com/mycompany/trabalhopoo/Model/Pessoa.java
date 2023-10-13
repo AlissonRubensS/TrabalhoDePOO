@@ -1,5 +1,5 @@
 
-package com.mycompany.trabalhopoo;
+package com.mycompany.trabalhopoo.Model;
 
 public class Pessoa {
     private int id;
@@ -12,7 +12,7 @@ public class Pessoa {
         super();
     }
 
-    public Pessoa(String nome, CPF cpf, Email email, String senha) {
+    public Pessoa(String nome, String cpf, Email email, String senha) {
         this.setNome(nome);
         this.setCpf(cpf);
         this.setEmail(email);
@@ -41,8 +41,8 @@ public class Pessoa {
         return cpf;
     }
 
-    public void setCpf(CPF cpf) {
-        this.cpf = cpf;
+    public void setCpf(String cpf) {
+        this.cpf = new CPF(cpf);
     }
 
     public Email getEmail() {
@@ -50,7 +50,9 @@ public class Pessoa {
     }
 
     public void setEmail(Email email) {
-        this.email = email;
+        if(email.validarEmail(email.getEmail())){ 
+            this.email = email;
+        }
     }
 
     public String getSenhaString() {

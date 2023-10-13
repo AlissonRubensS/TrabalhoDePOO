@@ -1,12 +1,10 @@
-package com.mycompany.trabalhopoo;
+package com.mycompany.trabalhopoo.Model;
 
 class CPF {
     private int cpf[] = new int[11];
     
     public CPF(String cpf){
-        if (cpf.length() == 11) {
-            this.cpf = this.cpfString2Array(cpf);
-        }
+        this.setCpf(cpf);
     }
     
     public CPF(){
@@ -45,5 +43,11 @@ class CPF {
 
     public int[] getCpf() {
         return cpf;
+    }
+    
+    public void setCpf(String cpf){
+        if (cpf.length() == 11 && this.isCpfValido(cpf)) {
+            this.cpf = this.cpfString2Array(cpf);
+        }
     }
 }

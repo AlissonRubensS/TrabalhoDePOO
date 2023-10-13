@@ -1,5 +1,5 @@
 
-package com.mycompany.trabalhopoo;
+package com.mycompany.trabalhopoo.Model;
 
 public class TecAdm {
     public void finalizarChamado() {

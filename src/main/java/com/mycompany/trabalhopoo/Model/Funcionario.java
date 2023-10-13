@@ -1,5 +1,5 @@
 
-package com.mycompany.trabalhopoo;
+package com.mycompany.trabalhopoo.Model;
 
 public class Funcionario extends Pessoa {
     private String cargo;
@@ -9,7 +9,7 @@ public class Funcionario extends Pessoa {
     }
 
     public void setCargo(String cargo) {
-        if ("docente".equals(cargo) || "tec".equals(cargo) || "admin".equals(cargo)) {
+        if ("Docente".equals(cargo) || "TecAdm".equals(cargo) || "Administrador".equals(cargo)) {
             this.cargo = cargo;
         }
     }

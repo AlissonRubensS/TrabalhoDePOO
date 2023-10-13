@@ -1,5 +1,5 @@
 
-package com.mycompany.trabalhopoo;
+package com.mycompany.trabalhopoo.Model;
 
 public class Requisicao {
     private int id;
@@ -22,7 +22,7 @@ public class Requisicao {
     }
 
     public void setData_requisicao(Data data_requisicao) {
-        this.data_requisicao = data_requisicao;
+        data_requisicao.setData(data_requisicao.getData());
     }
 
     public String getLocal() {
@@ -30,7 +30,9 @@ public class Requisicao {
     }
 
     public void setLocal(String local) {
-        this.local = local;
+        if(local != null){
+            this.local = local;
+        }
     }
 
     public String getObjeto() {
@@ -38,7 +40,9 @@ public class Requisicao {
     }
 
     public void setObjeto(String objeto) {
-        this.objeto = objeto;
+        if(objeto != null){
+           this.objeto = objeto;
+        }
     }
 
     public String getStatus() {
@@ -46,7 +50,9 @@ public class Requisicao {
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        if (status == "Pedente" || status == "Andamento" || status == "Concluido") {
+            this.status = status;
+        }
     }
 
     public String getNivelUrgencia() {

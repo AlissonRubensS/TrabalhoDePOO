@@ -1,14 +1,25 @@
 
-package com.mycompany.trabalhopoo;
+package com.mycompany.trabalhopoo.Model;
 
 public class Chamado {
     private int id;
     private Data data_chamado;
     private String local;
     private String objeto;
-    private Categoria tipo_chamdo;
     private String descricao;
 
+    public Chamado(){
+        super();
+    }
+    
+    public Chamado(int id, Data data_chamado, String local, String objeto, String nova_descricao){
+        this.setId(id);
+        this.setDataChamado(data_chamado);
+        this.setLocal(local);
+        this.setObjeto(objeto);
+        this.setDescricao(nova_descricao);
+    }
+    
     public int getId() {
         return id;
     }
@@ -21,7 +32,7 @@ public class Chamado {
         return data_chamado;
     }
 
-    public void setData_chamado(Data data_chamado) {
+    public void setDataChamado(Data data_chamado) {
         this.data_chamado.setDia(data_chamado.getDia());
         this.data_chamado.setMes(data_chamado.getMes());
         this.data_chamado.setAno(data_chamado.getAno());
@@ -47,19 +58,13 @@ public class Chamado {
         }
     }
 
-    public Categoria getTipo_chamdo() {
-        return tipo_chamdo;
-    }
-
-    public void setTipo_chamdo(Categoria tipo_chamdo) {
-        this.tipo_chamdo = tipo_chamdo;
-    }
-
     public String getDescricao() {
         return descricao;
     }
 
     public void setDescricao(String descricao) {
-        this.descricao = descricao;
+        if(descricao != null){
+            this.descricao = descricao;
+        }
     }
 }
