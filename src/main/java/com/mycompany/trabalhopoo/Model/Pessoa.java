@@ -8,59 +8,67 @@ public class Pessoa {
     private Email email;
     private String senha;
 
+    // CONSTRUTOR PADRÃO VAZIO
     public Pessoa() {
-        super();
     }
 
-    public Pessoa(String nome, String cpf, Email email, String senha) {
+    // CONSTRUTOR QUE ACEITA ARGUMENTOS PARA INICIALIZAR AS PROPRIEDADES
+    public Pessoa(String nome, CPF cpf, Email email, String senha) {
         this.setNome(nome);
         this.setCpf(cpf);
         this.setEmail(email);
         this.setSenha(senha);
     }
 
+    // GETTER PARA OBTER O ID
     public int getId() {
         return id;
     }
 
+    // SETTER PARA DEFINIR O ID
     public void setId(int id) {
         this.id = id;
     }
 
+    // GETTER PARA OBTER O NOME
     public String getNome() {
         return nome;
     }
 
+    // SETTER PARA DEFINIR O NOME
     public void setNome(String nome) {
         if (nome != null) {
             this.nome = nome;
         }
     }
 
+    // GETTER PARA OBTER O CPF
     public CPF getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = new CPF(cpf);
+    // SETTER PARA DEFINIR O CPF
+    public void setCpf(CPF cpf) {
+        this.cpf = cpf;
     }
 
+    // GETTER PARA OBTER O EMAIL
     public Email getEmail() {
         return email;
     }
 
+    // SETTER PARA DEFINIR O EMAIL
     public void setEmail(Email email) {
-        if(email.validarEmail(email.getEmail())){ 
-            this.email = email;
-        }
+        this.email = email;
     }
 
-    public String getSenhaString() {
+    // GETTER PARA OBTER A SENHA
+    public String getSenha() {
         return senha;
     }
 
+    // SETTER PARA DEFINIR A SENHA
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
 }

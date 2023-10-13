@@ -2,23 +2,42 @@
 package com.mycompany.trabalhopoo.Model;
 
 public class TecAdm {
-    public void finalizarChamado() {
+    private Chamado chamado;
+
+    // MÉTODO PARA FINALIZAR UM CHAMADO
+    public void finalizarChamado(Chamado chamado) {
 
     }
 
-    public void feedbackChamado() {
+    // MÉTODO PARA FORNECER FEEDBACK A UM CHAMADO
+    public String feedbackChamado(Chamado chamado) {
+
+        return "Feedback do chamado";
+    }
+
+    // MÉTODO PARA CRIAR UMA REQUISIÇÃO COM BASE EM UM CHAMADO
+    public void criarRequisicao(Chamado chamado) {
 
     }
 
-    public void criarRequisicao() {
+    // MÉTODO PARA EDITAR UMA REQUISIÇÃO COM BASE EM UM CHAMADO
+    public void editarRequisicao(Chamado chamado) {
 
     }
 
-    public void editarRequisicao() {
+    // MÉTODO PARA EXCLUIR UMA REQUISIÇÃO E RETORNAR O CHAMADO ASSOCIADO
+    public Chamado excluirRequisicao(Chamado chamado) {
 
+        return chamado;
     }
 
-    public Requisicao excluirRequisicao(Requisicao id) {
-        return id;
+    // GETTER PARA OBTER O CHAMADO
+    public Chamado getChamado() {
+        return chamado;
+    }
+
+    // SETTER PARA DEFINIR O CHAMADO
+    public void setChamado(Chamado chamado) {
+        this.chamado = chamado;
     }
 }

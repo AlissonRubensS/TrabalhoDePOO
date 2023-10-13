@@ -6,65 +6,81 @@ public class Chamado {
     private Data data_chamado;
     private String local;
     private String objeto;
-    private String descricao;
+    private String nova_descricao;
 
-    public Chamado(){
+    public Chamado() {
         super();
     }
-    
-    public Chamado(int id, Data data_chamado, String local, String objeto, String nova_descricao){
+
+    // CONSTRUTOR QUE RECEBE OS DADOS DO CHAMADO COMO ARGUMENTO
+    public Chamado(int id, Data data_chamado, String local, String objeto, String nova_descricao) {
         this.setId(id);
         this.setDataChamado(data_chamado);
         this.setLocal(local);
         this.setObjeto(objeto);
-        this.setDescricao(nova_descricao);
+        this.setNovaDescricao(nova_descricao);
     }
-    
+
+    // MÉTODO GETTER PARA OBTER O IDENTIFICADOR DO CHAMADO
     public int getId() {
         return id;
     }
 
+    // MÉTODO SETTER PARA DEFINIR O IDENTIFICADOR DO CHAMADO
     public void setId(int id) {
         this.id = id;
     }
 
-    public Data getData_chamado() {
+    // MÉTODO GETTER PARA OBTER A DATA DO CHAMADO
+    public Data getDataChamado() {
         return data_chamado;
     }
 
+    // MÉTODO SETTER PARA DEFINIR A DATA DO CHAMADO
+
     public void setDataChamado(Data data_chamado) {
-        this.data_chamado.setDia(data_chamado.getDia());
-        this.data_chamado.setMes(data_chamado.getMes());
-        this.data_chamado.setAno(data_chamado.getAno());
+        this.data_chamado = data_chamado;
     }
+
+    // MÉTODO GETTER PARA OBTER O LOCAL DO CHAMADO
 
     public String getLocal() {
         return local;
     }
 
+    // MÉTODO SETTER PARA DEFINIR O LOCAL DO CHAMADO
+
     public void setLocal(String local) {
-        if(local != null){
+        if (local != null) {
             this.local = local;
         }
     }
+
+    // MÉTODO GETTER PARA OBTER O OBJETO DO CHAMADO
 
     public String getObjeto() {
         return objeto;
     }
 
+    // MÉTODO SETTER PARA DEFINIR O OBJETO DO CHAMADO
+
     public void setObjeto(String objeto) {
-        if(objeto != null){
+        if (objeto != null) {
             this.objeto = objeto;
         }
     }
 
-    public String getDescricao() {
-        return descricao;
+    // MÉTODO GETTER PARA OBTER A NOVA DESCRIÇÃO DO CHAMADO
+
+    public String getNovaDescricao() {
+        return nova_descricao;
     }
 
-    public void setDescricao(String descricao) {
-        if(descricao != null){
-            this.descricao = descricao;
+    // MÉTODO SETTER PARA DEFINIR A NOVA DESCRIÇÃO DO CHAMADO
+
+    public void setNovaDescricao(String nova_descricao) {
+        if (nova_descricao != null) {
+            this.nova_descricao = nova_descricao;
         }
     }
 }
