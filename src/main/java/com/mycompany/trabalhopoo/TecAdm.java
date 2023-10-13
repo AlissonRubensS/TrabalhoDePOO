@@ -10,19 +10,23 @@ package com.mycompany.trabalhopoo;
  * @author Adailton
  */
 public class TecAdm {
-    public void finalizarChamado(){
+    public void finalizarChamado() {
 
     }
-    public void feedbackChamado(){
-        
+
+    public void feedbackChamado() {
+
     }
-    public Requisicao excluirRequisicao(Requisicao id){
+
+    public void criarRequisicao() {
+
+    }
+
+    public void editarRequisicao() {
+
+    }
+
+    public Requisicao excluirRequisicao(Requisicao id) {
         return id;
-    }
-    public void criarRequisicao(){
-        
-    }
-    public void editarRequisicao(){
-        
     }
 }

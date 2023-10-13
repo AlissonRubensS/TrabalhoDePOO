@@ -13,7 +13,7 @@ public class Data {
     private int dia;
     private int mes;
     private int ano;
-    
+
     public String getData() {
         return data;
     }
@@ -23,12 +23,17 @@ public class Data {
         if (aux.length < 3) {
             return;
         }
-        
+
         int dia = 0, mes = 0, ano = 0;
-        dia = (aux[0].length() == 1)?Character.getNumericValue(aux[0].charAt(0)) : Character.getNumericValue(aux[0].charAt(0)) * 10 + Character.getNumericValue(aux[0].charAt(1));
-        mes = (aux[1].length() == 1)?Character.getNumericValue(aux[1].charAt(0)) : Character.getNumericValue(aux[1].charAt(0)) * 10 + Character.getNumericValue(aux[1].charAt(1));
-        ano = (aux[2].length() == 4)?Character.getNumericValue(aux[2].charAt(0)) * 1000 + Character.getNumericValue(aux[2].charAt(1)) * 100 + Character.getNumericValue(aux[2].charAt(2)) * 10 + Character.getNumericValue(aux[2].charAt(3)): 0 ;
-        
+        dia = (aux[0].length() == 1) ? Character.getNumericValue(aux[0].charAt(0))
+                : Character.getNumericValue(aux[0].charAt(0)) * 10 + Character.getNumericValue(aux[0].charAt(1));
+        mes = (aux[1].length() == 1) ? Character.getNumericValue(aux[1].charAt(0))
+                : Character.getNumericValue(aux[1].charAt(0)) * 10 + Character.getNumericValue(aux[1].charAt(1));
+        ano = (aux[2].length() == 4)
+                ? Character.getNumericValue(aux[2].charAt(0)) * 1000 + Character.getNumericValue(aux[2].charAt(1)) * 100
+                        + Character.getNumericValue(aux[2].charAt(2)) * 10 + Character.getNumericValue(aux[2].charAt(3))
+                : 0;
+
         if (dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12 && ano >= 1920) {
             this.data = data;
             this.dia = dia;
@@ -40,8 +45,8 @@ public class Data {
     public Data(String data) {
         this.setData(data);
     }
-    
-    public Data(){
+
+    public Data() {
         super();
     }
 
@@ -50,7 +55,7 @@ public class Data {
     }
 
     public void setDia(int dia) {
-        if(dia >= 1 && dia <= 31){
+        if (dia >= 1 && dia <= 31) {
             this.dia = dia;
         }
     }
@@ -60,7 +65,7 @@ public class Data {
     }
 
     public void setMes(int mes) {
-        if(mes >= 1 && mes <= 12){
+        if (mes >= 1 && mes <= 12) {
             this.mes = mes;
         }
     }
@@ -70,11 +75,9 @@ public class Data {
     }
 
     public void setAno(int ano) {
-        if(ano >= 1920){
+        if (ano >= 1920) {
             this.ano = ano;
         }
     }
-    
-    
-    
+
 }

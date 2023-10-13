@@ -8,18 +8,22 @@ package com.mycompany.trabalhopoo;
  *
  * @author Adailton
  */
-public class Admin {
-    public boolean cadastrarFuncionario(Funcionario funcionario){
-        return true;
-    }
-    public Funcionario removerFuncionario(Funcionario id){
-        return id;
-    }
-    public void alterarFuncionario(Funcionario id){
+public class Administrador {
+    public boolean cadastrarFuncionario(Funcionario funcionario) {
 
-    }
-    public boolean validarFuncionario(Funcionario funcionario){
         return true;
     }
 
+    public void alterarFuncionario(int id) {
+
+    }
+
+    public Funcionario removerFuncionario(int id) {
+
+        return null;
+    }
+
+    public void validarRequisicao() {
+
+    }
 }

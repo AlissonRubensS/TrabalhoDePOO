@@ -12,21 +12,20 @@ public class Pessoa {
     private int id;
     private String nome;
     private CPF cpf;
-    private Data data_nasc;
     private Email email;
     private String senha;
 
-    public Pessoa(){
+    public Pessoa() {
         super();
     }
-    
-    public Pessoa(String nome, CPF cpf, Data data_nasc, Email email, String senha){
+
+    public Pessoa(String nome, CPF cpf, Email email, String senha) {
         this.setNome(nome);
         this.setCpf(cpf);
-        this.setDataNasc(data_nasc);;
         this.setEmail(email);
+        this.setSenha(senha);
     }
-    
+
     public int getId() {
         return id;
     }
@@ -40,7 +39,7 @@ public class Pessoa {
     }
 
     public void setNome(String nome) {
-        if(nome != null){
+        if (nome != null) {
             this.nome = nome;
         }
     }
@@ -53,14 +52,6 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    public Data getDataNasc() {
-        return data_nasc;
-    }
-
-    public void setDataNasc(Data data_nasc) {
-        this.data_nasc = data_nasc;
-    }
-
     public Email getEmail() {
         return email;
     }
@@ -69,13 +60,12 @@ public class Pessoa {
         this.email = email;
     }
 
-    public String getPassword() {
+    public String getSenhaString() {
         return senha;
     }
 
-    public void setPassword(String senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    
+
 }

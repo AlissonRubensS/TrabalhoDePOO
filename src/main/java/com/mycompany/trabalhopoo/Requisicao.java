@@ -13,8 +13,8 @@ public class Requisicao {
     private Data data_requisicao;
     private String local;
     private String objeto;
-    private Categoria tipo_requisicao;
     private String status;
+    private String nivel_urgencia;
 
     public int getId() {
         return id;
@@ -48,14 +48,6 @@ public class Requisicao {
         this.objeto = objeto;
     }
 
-    public Categoria getTipo_requisicao() {
-        return tipo_requisicao;
-    }
-
-    public void setTipo_requisicao(Categoria tipo_requisicao) {
-        this.tipo_requisicao = tipo_requisicao;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -63,6 +55,12 @@ public class Requisicao {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
+
+    public String getNivelUrgencia() {
+        return nivel_urgencia;
+    }
+
+    public void setNivelUrgencia(String nivel_urgencia) {
+        this.nivel_urgencia = nivel_urgencia;
+    }
 }
