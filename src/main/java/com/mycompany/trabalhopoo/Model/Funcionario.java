@@ -20,6 +20,6 @@ public class Funcionario extends Pessoa {
     public boolean login(String email, String senha) {
         // VERIFICA SE O E-MAIL E SENHA FORNECIDOS CORRESPONDEM ÀS INFORMAÇÕES DO
         // FUNCIONÁRIO
-        return (this.getEmail().equals(email) && this.getSenhaString().equals(senha));
+        return (this.getEmail().equals(email) && this.getSenha().equals(senha));
     }
 }

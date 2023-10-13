@@ -1,6 +1,6 @@
 package com.mycompany.trabalhopoo.Model;
 
-public class Administrador {
+public class Administrador{
     private String nome;
     private String cpf;
 
