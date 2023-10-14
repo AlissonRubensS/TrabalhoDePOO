@@ -72,6 +72,8 @@ public class Requisicao {
 
     // SETTER PARA DEFINIR O NÍVEL DE URGÊNCIA
     public void setNivelUrgencia(String nivel_urgencia) {
-        this.nivel_urgencia = nivel_urgencia;
+        if ("Imediato".equals(nivel_urgencia) || "Relevante".equals(nivel_urgencia) || "Pouco relevante".equals(nivel_urgencia)) {
+            this.nivel_urgencia = nivel_urgencia;
+        }
     }
 }

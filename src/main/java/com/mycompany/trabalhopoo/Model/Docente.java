@@ -11,13 +11,15 @@ public class Docente extends Funcionario {
 
     // MÉTODO PARA EXCLUIR UM CHAMADO
     public Chamado excluirChamado(Chamado chamado) {
-
+        // NÃO PODEMOS FAZER ESSA PARTE AGORA, POIS AJUSTES SERÃO FEITOS EM BREVE
         return chamado;
     }
 
     // MÉTODO PARA EDITAR A DESCRICAO DE UM CHAMADO
-    public void editarChamado(Chamado chamado, String novaDescricao) {
-
+    public void editarChamado(Data data_chamado, String local, String objeto, String novaDescricao, Chamado chamado) {
+        chamado.setDataChamado(data_chamado);
+        chamado.setLocal(local);
+        chamado.setObjeto(objeto);
         chamado.setNovaDescricao(novaDescricao);
     }
 

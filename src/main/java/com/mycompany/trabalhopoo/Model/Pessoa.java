@@ -69,6 +69,8 @@ public class Pessoa {
 
     // SETTER PARA DEFINIR A SENHA
     public void setSenha(String senha) {
-        this.senha = senha;
+        if(senha != null){
+            this.senha = senha;
+        }
     }
 }
