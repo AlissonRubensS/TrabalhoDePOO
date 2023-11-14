@@ -11,6 +11,9 @@ public class Chamado {
     public Chamado() {
         super();
     }
+    public Chamado(Chamado chamado){
+        
+    }
 
     // CONSTRUTOR QUE RECEBE OS DADOS DO CHAMADO COMO ARGUMENTO
     public Chamado(int id, Data data_chamado, String local, String objeto, String nova_descricao) {

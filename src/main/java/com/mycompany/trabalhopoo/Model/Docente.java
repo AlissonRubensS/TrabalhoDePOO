@@ -5,24 +5,10 @@ public class Docente extends Funcionario {
     private Chamado novo_chamado;
 
     // CONSTRUTOR PADRÃO VAZIO
-    public Docente() {
+    public Docente(Chamado chamado) {
         super();
+        this.novo_chamado = chamado;
     }
-
-    // MÉTODO PARA EXCLUIR UM CHAMADO
-    public Chamado excluirChamado(Chamado chamado) {
-        // NÃO PODEMOS FAZER ESSA PARTE AGORA, POIS AJUSTES SERÃO FEITOS EM BREVE
-        return chamado;
-    }
-
-    // MÉTODO PARA EDITAR A DESCRICAO DE UM CHAMADO
-    public void editarChamado(Data data_chamado, String local, String objeto, String novaDescricao, Chamado chamado) {
-        chamado.setDataChamado(data_chamado);
-        chamado.setLocal(local);
-        chamado.setObjeto(objeto);
-        chamado.setNovaDescricao(novaDescricao);
-    }
-
     // GETTER PARA OBTER O NOVO CHAMADO
     public Chamado getNovo_chamado() {
         return novo_chamado;
@@ -31,5 +17,9 @@ public class Docente extends Funcionario {
     // SETTER PARA DEFINIR O NOVO CHAMADO
     public void setNovo_chamado(Chamado chamado) {
         this.novo_chamado = chamado;
+    }
+
+    public String getDetalhes() {
+        return "ID do Chamado: "+novo_chamado.getId()+"\nData do Chamado: "+novo_chamado.getDataChamado()+"\nObjeto: "+novo_chamado.getObjeto()+"\nLocal: "+novo_chamado.getLocal()+"\nDescricao: "+novo_chamado.getNovaDescricao();
     }
 }

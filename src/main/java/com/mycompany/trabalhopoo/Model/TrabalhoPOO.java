@@ -7,8 +7,8 @@ public class TrabalhoPOO {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int escolha;
-        String usuarioDig, senhaDig;
+        int escolha, idex;
+        String usuarioDig, senhaDig, usuarioCorreto, senhaCorreta;
         do {
             System.out.println("Menu:");
             System.out.println("1. Docente");
@@ -17,23 +17,28 @@ public class TrabalhoPOO {
             System.out.println("0. Sair");
             System.out.print("Escolha uma opcao: ");
             escolha = scanner.nextInt();
-            String usuarioCorreto, senhaCorreta;
             switch (escolha) {
+                
                 case 1:
+                    DocenteView visao = new DocenteView();
+                    DocenteController controlador = new DocenteController(visao);
+
+                    System.out.println("ÁREA DO DOCENTE\nBem-vindo, Professor!");
                     usuarioCorreto = "docente";
                     senhaCorreta = "246";
-                    System.out.println("Bem-vindo ao sistema de login");
+                    
                     do{
                         System.out.print("Digite seu nome de usuário: ");
                         usuarioDig = scanner.nextLine();
                         System.out.print("Digite sua senha: ");
                         senhaDig = scanner.nextLine();
+
                         if (usuarioDig.equals(usuarioCorreto) && senhaDig.equals(senhaCorreta)) {
-                            System.out.println("Login bem-sucedido!\nBem-vindo!");
+                            
+                            System.out.println("Login bem sucedido!");
                             System.out.println("\nO que deseja?");
-                            System.out.println("1. Criar Chamado");
-                            System.out.println("2. Editar Chamado");
-                            System.out.println("3. Excluir Chamado");
+                            System.out.println("1. Editar Chamado");
+                            System.out.println("2. Excluir Chamado");
                             System.out.println("0. Sair");
                             System.out.print("Escolha uma opcao: ");
                             escolha = scanner.nextInt();
@@ -57,6 +62,14 @@ public class TrabalhoPOO {
                                 novChamado.setLocal(descricao);
                             }if(escolha==2){
 
+
+                                System.out.println("Digite o ID do chamado: ");
+                                idex = scanner.nextInt();
+                                //criar um For para procurar o chamado pelo ID
+                                //criar uma função imprimir para imprimir as informações do chamado
+                                controlador.excluirChamado(null);
+
+
                             }if(escolha==3){
 
                             }if(escolha==0){
@@ -64,49 +77,20 @@ public class TrabalhoPOO {
                                 break;
                             }else{
                                 System.out.println("Opção inválida.");
+                                break;
                             }
-                            break;
                         } else {
                             System.out.println("Usuário ou senha incorretos. Tente novamente.");
                         }
                     }while(true);
                     break;
+
                 case 2:
-                    usuarioCorreto = "tecnico";
-                    senhaCorreta = "135";
-                    System.out.println("Bem-vindo ao sistema de login");
-                    
-                    do{
-                        System.out.print("Digite seu nome de usuário: ");
-                        usuarioDig = scanner.nextLine();
-                        System.out.print("Digite sua senha: ");
-                        senhaDig = scanner.nextLine();
-                        if (usuarioDig.equals(usuarioCorreto) && senhaDig.equals(senhaCorreta)) {
-                            System.out.println("Login bem-sucedido!\nBem-vindo, " + usuarioCorreto);
-                            break;
-                        } else {
-                            System.out.println("Usuário ou senha incorretos. Tente novamente.");
-                        }
-                    }while(true);
-                    break;
+                    //usuarioCorreto = "tecnico";
+                    //senhaCorreta = "135";
                 case 3:
-                    usuarioCorreto = "administrador";
-                    senhaCorreta = "369";
-                    System.out.println("Bem-vindo ao sistema de login");
-                    
-                    do{
-                        System.out.print("Digite seu nome de usuário: ");
-                        usuarioDig = scanner.nextLine();
-                        System.out.print("Digite sua senha: ");
-                        senhaDig = scanner.nextLine();
-                        if (usuarioDig.equals(usuarioCorreto) && senhaDig.equals(senhaCorreta)) {
-                            System.out.println("Login bem-sucedido!\nBem-vindo, " + usuarioCorreto);
-                            break;
-                        } else {
-                            System.out.println("Usuário ou senha incorretos. Tente novamente.");
-                        }
-                    }while(true);
-                    break;
+                    //usuarioCorreto = "administrador";
+                    //senhaCorreta = "369";
                 case 0:
                     System.out.println("Saindo do programa.");
                     break;
