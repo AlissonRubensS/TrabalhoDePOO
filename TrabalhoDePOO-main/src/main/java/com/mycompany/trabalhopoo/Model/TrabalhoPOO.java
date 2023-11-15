@@ -1,4 +1,3 @@
-
 package com.mycompany.trabalhopoo.Model;
 
 import java.util.Scanner;
