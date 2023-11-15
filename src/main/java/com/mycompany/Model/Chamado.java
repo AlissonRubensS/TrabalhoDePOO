@@ -12,7 +12,13 @@ public class Chamado {
         super();
     }
     public Chamado(Chamado chamado){
-        
+        if(chamado!=null){
+            this.id = chamado.id;
+            this.data_chamado = chamado.data_chamado;
+            this.local = chamado.local;
+            this.objeto = chamado.objeto;
+            this.nova_descricao = chamado.nova_descricao;
+        }
     }
 
     // CONSTRUTOR QUE RECEBE OS DADOS DO CHAMADO COMO ARGUMENTO
@@ -85,5 +91,9 @@ public class Chamado {
         if (nova_descricao != null) {
             this.nova_descricao = nova_descricao;
         }
+    }
+
+    public String getDetalhes() {
+        return "ID do Chamado: "+getId()+"\nData do Chamado: "+getDataChamado()+"\nObjeto: "+getObjeto()+"\nLocal: "+getLocal()+"\nDescricao: "+getNovaDescricao();
     }
 }
