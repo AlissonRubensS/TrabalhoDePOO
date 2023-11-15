@@ -1,5 +1,5 @@
 
-package com.mycompany.trabalhopoo.Model;
+package com.mycompany.Model;
 
 public class Data {
     private String data; // STRING QUE ARMAZENA A DATA NO FORMATO "DIA/MÊS/ANO"

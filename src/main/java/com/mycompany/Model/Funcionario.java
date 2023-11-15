@@ -1,5 +1,5 @@
 
-package com.mycompany.trabalhopoo.Model;
+package com.mycompany.Model;
 
 public class Funcionario extends Pessoa {
     private String cargo; // PRPRIEDADE QUE ARMAZENA O CARGO DO FUNCIONÁRIO

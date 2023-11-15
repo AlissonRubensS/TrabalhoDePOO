@@ -1,6 +1,7 @@
 package com.mycompany.View;
 
-import com.mycompany.trabalhopoo.Model.*;
+import com.mycompany.Model.*;
+import com.mycompany.Controller.*;
 import java.util.*;
 
 public class Login {

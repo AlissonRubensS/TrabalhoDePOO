@@ -1,13 +1,14 @@
-
 package com.mycompany.View;
 
+import com.mycompany.Controller.*;
 import java.util.Scanner;
-
-//import com.mycompany.trabalhopoo.Model.Chamado;
 
 public class TrabalhoPOO {
 
     public static void main(String[] args) {
+        
+        LoginController.load();
+        
         Scanner scanner = new Scanner(System.in);
         boolean control = true;
         while (control == true) {

@@ -1,5 +1,5 @@
 
-package com.mycompany.trabalhopoo.Model;
+package com.mycompany.Model;
 
 public class Chamado {
     private int id;

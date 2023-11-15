@@ -1,5 +1,5 @@
 
-package com.mycompany.trabalhopoo.Model;
+package com.mycompany.Model;
 
 public class Docente extends Funcionario {
     private Chamado novo_chamado;

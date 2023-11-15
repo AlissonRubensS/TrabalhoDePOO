@@ -1,5 +1,4 @@
-
-package com.mycompany.trabalhopoo.Model;
+package com.mycompany.Model;
 
 public class TecAdm extends Funcionario{
     private Chamado chamado;

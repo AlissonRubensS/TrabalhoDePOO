@@ -1,5 +1,5 @@
 
-package com.mycompany.trabalhopoo.Model;
+package com.mycompany.Model;
 
 public class Email {
     private String email; // PROPRIEDADE QUE ARMAZENA O ENDEREÇO DE E-MAIL

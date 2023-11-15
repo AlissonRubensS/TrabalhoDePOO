@@ -1,4 +1,4 @@
-package com.mycompany.trabalhopoo.Model;
+package com.mycompany.Model;
 
 import java.util.ArrayList;
 

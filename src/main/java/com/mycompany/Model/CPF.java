@@ -1,4 +1,4 @@
-package com.mycompany.trabalhopoo.Model;
+package com.mycompany.Model;
 
 public class CPF {
     private int cpf[] = new int[11]; // ARRAY PARA ARMAZENAR OS DÍGITOS DO CPF

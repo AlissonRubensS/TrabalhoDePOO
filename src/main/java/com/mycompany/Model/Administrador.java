@@ -1,4 +1,4 @@
-package com.mycompany.trabalhopoo.Model;
+package com.mycompany.Model;
 
 public class Administrador extends Funcionario{
 
