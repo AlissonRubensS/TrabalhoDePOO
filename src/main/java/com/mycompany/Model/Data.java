@@ -44,13 +44,15 @@ public class Data {
 
     // MÉTODO SETTER PARA DEFINIR A DATA, VERIFICANDO SE É VÁLIDA
     public void setData(String data) {
-        if (this.verificarData(data)) {
-            this.data = data;
-            this.dia = dia;
-            this.mes = mes;
-            this.ano = ano;
-        }
+    if (this.verificarData(data)) {
+        this.data = data; // Atribuir a data fornecida
+        // Separar a data em dia, mês e ano
+        String[] aux = data.split("/");
+        this.dia = Integer.parseInt(aux[0]);
+        this.mes = Integer.parseInt(aux[1]);
+        this.ano = Integer.parseInt(aux[2]);
     }
+}
 
     // MÉTODO GETTER PARA OBTER O DIA DA DATA ATUAL
     public int getDia() {
