@@ -1,7 +1,6 @@
 package com.mycompany.Controller;
 
 import java.util.ArrayList;
-
 import com.mycompany.Model.Email;
 import com.mycompany.Model.Funcionario;
 
@@ -21,6 +20,15 @@ public class LoginController {
         }
         
         return funcionarios;
+    }
+
+    public static Boolean logar(ArrayList<Funcionario> lista, Funcionario funcionario){
+        for (Funcionario f : lista) {
+            if (f.getEmail() == funcionario.getEmail() && f.getSenha() == funcionario.getSenha()) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
