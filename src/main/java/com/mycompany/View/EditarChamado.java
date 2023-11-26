@@ -1,10 +1,8 @@
-package View;
+package com.mycompany.View;
 
 import java.util.Scanner;
 import com.mycompany.Model.Chamado;
 import com.mycompany.Model.Data;
-
-
 
 public class EditarChamado {
     private static final Scanner scanner = new Scanner(System.in);
@@ -14,11 +12,13 @@ public class EditarChamado {
     }
 
     public static void exibirMenu() {
+        System.out.println("*******************************************************************");
         System.out.println("Bem-vindo(a) a opção de edição de chamados!");
         System.out.println("1. Criar chamado");
         System.out.println("2. Visualizar chamado");
         System.out.println("3. Editar chamado");
         System.out.println("4. Sair");
+        System.out.println("*******************************************************************");
 
         int opcao = scanner.nextInt();
         scanner.nextLine();
@@ -47,30 +47,26 @@ public class EditarChamado {
     }
 
    public static void criarChamado() {
-    // Implemente a lógica para criar um novo chamado
-    Chamado novoChamado = new Chamado(); // Certifique-se de que sua classe Chamado tenha um construtor adequado
+    
+    Chamado novoChamado = new Chamado(); 
     System.out.println("Digite os detalhes do novo chamado:");
-
-    // Preencha os detalhes do chamado usando scanner
+    
     System.out.println("ID do novo chamado:");
     novoChamado.setId(scanner.nextInt());
-    scanner.nextLine(); // Consumir a quebra de linha
+    scanner.nextLine(); 
 
     System.out.println("Data do Chamado (no formato DIA/MÊS/ANO):");
     String dataChamadoInput = scanner.nextLine();
 
-    // Ajuste para considerar o formato correto de Data
     Data dataChamado = new Data(dataChamadoInput);;
     novoChamado.setDataChamado(dataChamado);
-
-    // Continue preenchendo os detalhes conforme necessário
 
     System.out.println("Novo chamado criado com sucesso!");
     exibirMenu();
 }
 
     public static void visualizarChamado(Chamado chamado) {
-        // Implemente a lógica para exibir os detalhes do chamado
+        
         System.out.println("Detalhes do chamado:");
         System.out.println("ID: " + chamado.getId());
         System.out.println("Data do Chamado: " + chamado.getDataChamado());
@@ -86,8 +82,7 @@ public class EditarChamado {
         int numeroChamado = scanner.nextInt();
         scanner.nextLine();
         System.out.println("Realize as edições necessárias no chamado " + numeroChamado + ":");
-        // Implemente a lógica para editar o chamado
-
+    
         System.out.println("Chamado " + numeroChamado + " editado com sucesso!");
         exibirMenu();
     }

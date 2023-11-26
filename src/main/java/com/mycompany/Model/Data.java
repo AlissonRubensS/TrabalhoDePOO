@@ -18,7 +18,7 @@ public class Data {
     }
 
     // MÉTODO PARA VERIFICAR SE UMA DATA É VÁLIDA
-    public boolean verificarData(String data) {
+    public static boolean verificarData(String data) {
         String aux[] = data.split("/");
         if (aux.length < 3) {
             return false; // A DTA DEVE CONTER DIA, MÊS E ANO
@@ -44,9 +44,8 @@ public class Data {
 
     // MÉTODO SETTER PARA DEFINIR A DATA, VERIFICANDO SE É VÁLIDA
     public void setData(String data) {
-    if (this.verificarData(data)) {
-        this.data = data; // Atribuir a data fornecida
-        // Separar a data em dia, mês e ano
+    if (Data.verificarData(data)) {
+        this.data = data; 
         String[] aux = data.split("/");
         this.dia = Integer.parseInt(aux[0]);
         this.mes = Integer.parseInt(aux[1]);

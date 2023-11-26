@@ -96,4 +96,8 @@ public class Chamado {
     public String getDetalhes() {
         return "ID do Chamado: "+getId()+"\nData do Chamado: "+getDataChamado()+"\nObjeto: "+getObjeto()+"\nLocal: "+getLocal()+"\nDescricao: "+getNovaDescricao();
     }
+    public Requisicao getRequisicao() {
+        return null;
+    }
+    
 }
