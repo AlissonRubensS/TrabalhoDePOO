@@ -11,7 +11,7 @@ public class Funcionario extends Pessoa {
 
     // SETTER PARA DEFINIR O CARGO DO FUNCIONÁRIO COM VALIDAÇÃO
     public void setCargo(String cargo) {
-        if ("Docente".equals(cargo) || "TecAdm".equals(cargo) || "Administrador".equals(cargo)) {
+        if ("D".equals(cargo) || "T".equals(cargo) || "A".equals(cargo)) {
             this.cargo = cargo;
         }
     }
@@ -23,16 +23,14 @@ public class Funcionario extends Pessoa {
     }
     
     public boolean equals(String a, String b){
-        boolean isEquals = true;
         if (a.length() == b.length()) {
             for (int i = 0; i < a.length(); i++) {
                 if (a.charAt(i) != b.charAt(i)) {
-                    isEquals = false;
-                    break;
+                    return false;
                 }
             }
         }
-        return isEquals;
+        return true;
     }
     
     public Funcionario(){}

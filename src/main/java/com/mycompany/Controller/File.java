@@ -1,50 +1,35 @@
 package com.mycompany.Controller;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-//import java.io.PrintWriter;
+import java.io.*;
+import java.util.ArrayList;
 
 public class File {
-    public static String read(String path){
-        String contents = "";
-        try {
-            FileReader file = new FileReader(path);
-            BufferedReader readFile = new BufferedReader(file);
-            String line = "";
-            try {
-                line = readFile.readLine();
-                while (line != null) {                    
-                    contents += line;
-                    line = readFile.readLine();
-                }
-                readFile.close();
-                
-            } catch (IOException ex) {
-                contents = "Erro: Não foi possível ler o arquivo";
+    public static ArrayList<String> read(String caminho){
+        ArrayList<String> texto = new ArrayList<String>();
+
+        try{
+            FileReader leitor;
+            leitor = new FileReader(caminho);
+            BufferedReader buffer_leitor = new BufferedReader(leitor);
+            String linha;
+
+            while ((linha = buffer_leitor.readLine()) != null) {
+                texto.add(linha);
             }
+
+            buffer_leitor.close();
+            leitor.close();
             
-        } catch (FileNotFoundException e) {
-            contents = "Erro: Não é possíel achar o arquivo!";
-        }
-        return contents;
-    }
-    
-    public static boolean Writer(String path, String contents){
-        try {
-            FileWriter file = new FileWriter(path);
-            PrintWriter writerFile = new PrintWriter(file);
-            writerFile.println(contents);
-            writerFile.close();
-            return true;
+        }catch(FileNotFoundException e){
+            System.out.println("Erro ao encontrar o arquivo" + " " + e.getMessage());
             
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            return false;
+        }catch(IOException e){
+            System.out.println("Erro ao lê o arquivo" + " " + e.getMessage());;
+            
+        }catch(Exception e){
+            System.out.println("Erro desconhecido" + " " + e.getMessage());;
             
         }
+        return texto;     
     }
 }

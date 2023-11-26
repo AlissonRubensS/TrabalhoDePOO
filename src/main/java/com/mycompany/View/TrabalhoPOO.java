@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class TrabalhoPOO {
 
     public static void main(String[] args) {
-        
+      
         LoginController.load();
         
         Scanner scanner = new Scanner(System.in);
@@ -21,10 +21,7 @@ public class TrabalhoPOO {
             int option = scanner.nextInt();
             switch (option) {
                 case 1:
-                    if(Login.login() == true){
-                        control = false;
-                    }
-                    else{
+                    if(Login.login() == false){
                         System.out.println("Email ou senha incorreta, tente novamente!\n");
                     }
                     

@@ -16,6 +16,10 @@ public class Login {
         System.out.println("Digite sua senha:");
         String password = scanner.nextLine();
         
+        ////////////////////////////////////////////
+        LoginController.load();
+        ////////////////////////////////////////////
+        
         Funcionario f = new Funcionario();
         //ALTERAR ESSA PARTE PARA LEITURA COM ARQUIVO
         if (f.login(email.getEmail(), password)) {
