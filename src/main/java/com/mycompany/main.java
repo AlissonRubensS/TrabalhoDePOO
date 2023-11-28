@@ -4,7 +4,7 @@ import com.mycompany.Controller.*;
 import com.mycompany.View.Login;
 import java.util.Scanner;
 
-public class TrabalhoPOO {
+public class main {
 
     public static void main(String[] args) {
       
