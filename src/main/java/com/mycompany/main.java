@@ -1,6 +1,7 @@
 package com.mycompany;
 
 import com.mycompany.Controller.*;
+import com.mycompany.Model.Funcionario;
 import com.mycompany.View.Login;
 import java.util.Scanner;
 
@@ -22,7 +23,14 @@ public class main {
             int option = scanner.nextInt();
             switch (option) {
                 case 1:
-                    if(Login.login() == false){
+                    Funcionario fun = Login.login();
+                    if (fun.getCargo().equals("A")) {
+                        //View do Admin 
+                    }else if (fun.getCargo().equals("D")) {
+                        //View do Dicente
+                    }else if (fun.getCargo().equals("T")) {
+                        //View do Técnico
+                    }else if(fun == null){
                         System.out.println("Email ou senha incorreta, tente novamente!\n");
                     }
                     

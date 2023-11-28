@@ -22,13 +22,13 @@ public class LoginController {
         return funcionarios;
     }
 
-    public static Boolean logar(ArrayList<Funcionario> lista, Funcionario funcionario){
+    public static Funcionario logar(ArrayList<Funcionario> lista, Funcionario funcionario){
         for (Funcionario f : lista) {
             if (f.getEmail().equals(funcionario.getEmail()) && f.getSenha().equals(funcionario.getSenha())) {
-                return true;
+                return f;
             }
         }
-        return false;
+        return null;
     }
 
 }

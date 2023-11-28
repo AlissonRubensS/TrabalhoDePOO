@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Login {
 
-    public static boolean login() {
+    public static Funcionario login() {
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Digite seu nome de usuário:");
