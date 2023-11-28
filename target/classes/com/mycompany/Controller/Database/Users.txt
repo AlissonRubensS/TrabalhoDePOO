@@ -1,1 +1,3 @@
-alisson@gmail.com | 123 | Admin
+admin@gmail.com 123 A
+doc@gmail.com 123 D
+tecadm@gmail.com 123 T
