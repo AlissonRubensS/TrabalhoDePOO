@@ -7,15 +7,14 @@ import java.util.*;
 public class Login {
 
     public static boolean login() {
-        boolean valido = false;
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Digite seu nome de usuário:");
-        String username = scanner.nextLine();
+        String username = scanner.next().strip();
         Email email = new Email(username);
 
         System.out.println("Digite sua senha:");
-        String password = scanner.nextLine();
+        String password = scanner.next().strip();
         
         ////////////////////////////////////////////
         ArrayList<Funcionario> lista = LoginController.load();

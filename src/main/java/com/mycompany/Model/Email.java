@@ -4,6 +4,17 @@ package com.mycompany.Model;
 public class Email {
     private String email; // PROPRIEDADE QUE ARMAZENA O ENDEREÇO DE E-MAIL
 
+    public boolean equals(Email email){
+        if (this.getEmail().equals(email.getEmail())) {
+            return true;
+        }
+        return false;
+    }
+
+    public String toString(){
+        return this.email;
+    }
+
     // MÉTODO PARA VALIDAR UM ENDERRÇO DE E-MAIL
     public boolean validarEmail(String email) {
         // Verifica se o e-mail contém o caractere "@"

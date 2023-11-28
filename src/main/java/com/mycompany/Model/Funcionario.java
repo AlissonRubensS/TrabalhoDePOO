@@ -19,24 +19,20 @@ public class Funcionario extends Pessoa {
     // MÉTODO PARA REALIZAR P LOGIN DO FUNCIONÁRIO
     public boolean login(String email, String senha) {
         // VERIFICA SE O E-MAIL E SENHA FORNECIDOS CORRESPONDEM ÀS INFORMAÇÕES DO FUNCIONÁRIO
-        return (this.equals(email, senha));
-    }
-    
-    public boolean equals(String a, String b){
-        if (a.length() == b.length()) {
-            for (int i = 0; i < a.length(); i++) {
-                if (a.charAt(i) != b.charAt(i)) {
-                    return false;
-                }
-            }
-        }
         return true;
     }
     
-    public Funcionario(){}
+    public boolean equals(Funcionario funcionario){
+        if (this.getEmail().equals(funcionario.getEmail())) {
+            return true;
+        }
+        return false;
+    }
     
     public Funcionario(Email email, String password){
         this.setEmail(email);
         this.setSenha(password);
     }
+    
+    public Funcionario(){}
 }
