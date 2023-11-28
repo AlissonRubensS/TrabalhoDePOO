@@ -25,10 +25,6 @@ public class Login {
         f.setEmail(email);
         f.setSenha(password);
         //ALTERAR ESSA PARTE PARA LEITURA COM ARQUIVO
-        if (f.login(email.getEmail(), password)) {
-            System.out.println("Login bem-sucedido para o usuário: " + username);
-            valido = LoginController.logar(lista, f);
-        }
-        return valido;
+        return LoginController.logar(lista, f);
     }
 }

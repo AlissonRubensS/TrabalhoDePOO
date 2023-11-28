@@ -1,7 +1,6 @@
 com\mycompany\Model\Funcionario.class
 com\mycompany\Controller\File.class
 com\mycompany\Model\Administrador.class
-View\EditarChamado.class
 com\mycompany\Model\Chamado.class
 com\mycompany\Model\CPF.class
 com\mycompany\Controller\LoginController.class

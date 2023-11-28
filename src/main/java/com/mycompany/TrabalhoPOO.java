@@ -1,6 +1,7 @@
-package com.mycompany.View;
+package com.mycompany;
 
 import com.mycompany.Controller.*;
+import com.mycompany.View.Login;
 import java.util.Scanner;
 
 public class TrabalhoPOO {

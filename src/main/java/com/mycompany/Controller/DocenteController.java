@@ -1,6 +1,8 @@
-package com.mycompany.Model;
+package com.mycompany.Controller;
 
 import java.util.ArrayList;
+import com.mycompany.Model.*;
+import com.mycompany.View.*;
 
 public class DocenteController {
     private ArrayList<Chamado> listaChamados;
