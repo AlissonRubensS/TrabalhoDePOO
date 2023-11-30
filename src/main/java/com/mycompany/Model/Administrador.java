@@ -6,6 +6,15 @@ public class Administrador extends Funcionario{
         // CONSTRUTOR
     }
 
+    public Administrador(Funcionario fun){
+        this.setId(fun.getId());
+        this.setNome(fun.getNome());
+        this.setEmail(fun.getEmail());
+        this.setCpf(fun.getCpf());
+        this.setCargo("A");
+        this.setSenha(fun.getSenha());
+    }
+
     // MÉTODO PARA CADASTRAR UM FUNCIONÁRIO
     public boolean cadastrarFuncionario(Funcionario funcionario) {
         funcionario = new Funcionario();

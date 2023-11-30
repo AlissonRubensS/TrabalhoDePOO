@@ -66,6 +66,8 @@ public class TecAdmMenu {
                 }
 
             } while (opcao != 0);
+        }catch(Exception e){
+            System.out.println(e);
         }
     }
 }
