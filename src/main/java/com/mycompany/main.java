@@ -23,22 +23,26 @@ public class Main {
                     int option = scanner.nextInt();
                     switch (option) {
                         case 1:
-                            Funcionario func = Login.login();
+                            Login login = new Login(scanner);
+                            Funcionario func = login.login();
                             if (func.getCargo().equals("A")) {
                                 //View do Admin 
                                 Administrador adm = new Administrador(func);
-                                AdmView adm_view = new AdmView(adm);
+                                AdmView adm_view = new AdmView(adm, scanner);
                                 adm_view.mostrarOpcoes();
+
                             }else if (func.getCargo().equals("D")) {
                                 //Area do Docente
                                 Docente doc = new Docente(func);
-                                DocenteView doc_view = new DocenteView(doc);
+                                DocenteView doc_view = new DocenteView(doc, scanner);
                                 doc_view.areaDocente();
+
                             }else if (func.getCargo().equals("T")) {
                                 //Area do Tecnico Administrativo
                                 TecAdm tec_adm = new TecAdm();
-                                TecAdmMenu tec_adm_menu = new TecAdmMenu(tec_adm);
+                                TecAdmMenu tec_adm_menu = new TecAdmMenu(tec_adm, scanner);
                                 tec_adm_menu.mostrarOpcoes();
+
                             }else{
                                 System.out.println("Email ou senha incorreta, tente novamente!\n");
                             }

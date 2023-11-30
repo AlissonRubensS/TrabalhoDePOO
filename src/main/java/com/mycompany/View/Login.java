@@ -5,9 +5,13 @@ import com.mycompany.Controller.*;
 import java.util.*;
 
 public class Login {
+    Scanner scanner;
+    
+    public Login(Scanner scanner){
+        this.scanner = scanner;
+    }
 
-    public static Funcionario login() {
-        Scanner scanner = new Scanner(System.in);
+    public Funcionario login() {
         
         System.out.println("Digite seu nome de usuário:");
         String username = scanner.next().strip();
@@ -16,7 +20,6 @@ public class Login {
         System.out.println("Digite sua senha:");
         String password = scanner.next().strip();
         
-        scanner.close();
         ////////////////////////////////////////////
         ArrayList<Funcionario> lista = LoginController.load();
         ////////////////////////////////////////////

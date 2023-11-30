@@ -9,15 +9,16 @@ import com.mycompany.Model.Data;
 public class TecAdmMenu {
 
     private TecAdm tecAdm;
+    private Scanner scanner;
 
-    public TecAdmMenu(TecAdm tecAdm) {
+    public TecAdmMenu(TecAdm tecAdm, Scanner scanner) {
         this.tecAdm = tecAdm;
+        this.scanner = scanner;
     }
 
     public void mostrarOpcoes() {
-        try (Scanner scanner = new Scanner(System.in)) {
             int opcao;
-
+        try{
             do {
                 System.out.println("*******************************************************************");
                 System.out.println("Escolha uma opção:");

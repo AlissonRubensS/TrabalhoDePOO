@@ -6,13 +6,14 @@ import com.mycompany.Model.*;
 public class AdmView {   
     
     private Administrador adm; 
-    
-    public AdmView(Administrador adm){   // metodo construtor
+    private Scanner scanner;
+
+    public AdmView(Administrador adm, Scanner scanner){   // metodo construtor
         this.adm = adm;
+        this.scanner = scanner;
     }
 
     public void mostrarOpcoes(){
-        try(Scanner scanner = new Scanner(System.in)){
             int opcao;
 
             do{
@@ -37,6 +38,7 @@ public class AdmView {
                     
                     System.out.println("digite o id do funcionario:");
                     id = scanner.nextInt();
+                    scanner.nextLine();
                     
                     System.out.println("digite o nome do funcionario:");
                     nome = scanner.nextLine();
@@ -84,7 +86,6 @@ public class AdmView {
                 }
             
             } while (opcao != 0);
-        }
     
     }
 
