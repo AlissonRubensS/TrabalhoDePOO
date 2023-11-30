@@ -7,12 +7,7 @@ public class Administrador extends Funcionario{
     }
 
     public Administrador(Funcionario fun){
-        this.setId(fun.getId());
-        this.setNome(fun.getNome());
-        this.setEmail(fun.getEmail());
-        this.setCpf(fun.getCpf());
-        this.setCargo("A");
-        this.setSenha(fun.getSenha());
+        super(fun.getNome(), fun.getCpf(), fun.getEmail(), fun.getSenha(), "D", fun.getId());
     }
 
     // MÉTODO PARA CADASTRAR UM FUNCIONÁRIO

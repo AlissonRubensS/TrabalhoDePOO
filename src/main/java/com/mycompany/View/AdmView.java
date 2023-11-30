@@ -1,7 +1,6 @@
 package com.mycompany.View;
 
 import java.util.Scanner;
-import com.mycompany.Controller.*;
 import com.mycompany.Model.*;
 
 public class AdmView {   

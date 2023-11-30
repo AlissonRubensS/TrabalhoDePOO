@@ -6,12 +6,7 @@ public class TecAdm extends Funcionario{
     public TecAdm(){}
 
     public TecAdm(Funcionario fun){
-        this.setId(fun.getId());
-        this.setNome(fun.getNome());
-        this.setEmail(fun.getEmail());
-        this.setSenha(fun.getSenha());
-        this.setCpf(fun.getCpf());
-        this.setCargo("T");
+        super(fun.getNome(), fun.getCpf(), fun.getEmail(), fun.getSenha(), "T", fun.getId());
     }
 
     // MÉTODO PARA FINALIZAR UM CHAMADO

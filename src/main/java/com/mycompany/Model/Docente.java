@@ -48,7 +48,9 @@ public class Docente extends Funcionario {
     public Docente(){
         super();
     }
-    
+    public Docente(Funcionario fun){
+        super(fun.getNome(), fun.getCpf(), fun.getEmail(), fun.getSenha(), "D", fun.getId());
+    }
     public String getDetalhesDocente() {
         return "Nome: "+getNome()+"\nCargo: "+getCargo()+"\nEmail: "+getEmail();
     }

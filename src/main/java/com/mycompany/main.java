@@ -5,7 +5,7 @@ import com.mycompany.Model.*;
 import com.mycompany.View.*;
 import java.util.*;
 
-public class main {
+public class Main {
 
     public static void main(String[] args) {
       
@@ -31,7 +31,8 @@ public class main {
                                 adm_view.mostrarOpcoes();
                             }else if (func.getCargo().equals("D")) {
                                 //Area do Docente
-                                DocenteView doc_view = new DocenteView();
+                                Docente doc = new Docente(func);
+                                DocenteView doc_view = new DocenteView(doc);
                                 doc_view.areaDocente();
                             }else if (func.getCargo().equals("T")) {
                                 //Area do Tecnico Administrativo
@@ -56,8 +57,6 @@ public class main {
                 System.out.println("Valor inserido inválido");
             }catch (Exception e){
                 System.out.println("ERRO! " + e.getMessage());
-            }finally{
-                scanner.next();
             }
         }
         scanner.close(); 

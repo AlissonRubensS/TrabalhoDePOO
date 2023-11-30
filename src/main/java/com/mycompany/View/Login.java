@@ -16,6 +16,7 @@ public class Login {
         System.out.println("Digite sua senha:");
         String password = scanner.next().strip();
         
+        scanner.close();
         ////////////////////////////////////////////
         ArrayList<Funcionario> lista = LoginController.load();
         ////////////////////////////////////////////
