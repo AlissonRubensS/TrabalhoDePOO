@@ -2,7 +2,11 @@ package com.mycompany;
 
 import com.mycompany.Controller.*;
 import com.mycompany.Model.Funcionario;
+import com.mycompany.Model.TecAdm;
+import com.mycompany.View.DocenteView;
 import com.mycompany.View.Login;
+import com.mycompany.View.TecAdmMenu;
+
 import java.util.Scanner;
 
 public class main {
@@ -27,10 +31,15 @@ public class main {
                     if (fun.getCargo().equals("A")) {
                         //View do Admin 
                     }else if (fun.getCargo().equals("D")) {
-                        //View do Dicente
+                        //Area do Docente
+                        DocenteView doc_view = new DocenteView();
+                        doc_view.areaDocente();
                     }else if (fun.getCargo().equals("T")) {
-                        //View do Técnico
-                    }else if(fun == null){
+                        //Area do Tecnico Administrativo
+                        TecAdm tec_adm = new TecAdm();
+                        TecAdmMenu tec_adm_menu = new TecAdmMenu(tec_adm);
+                        tec_adm_menu.mostrarOpcoes();
+                    }else{
                         System.out.println("Email ou senha incorreta, tente novamente!\n");
                     }
                     

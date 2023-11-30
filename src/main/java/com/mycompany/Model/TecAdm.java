@@ -3,6 +3,17 @@ package com.mycompany.Model;
 public class TecAdm extends Funcionario{
     private Chamado chamado;
 
+    public TecAdm(){}
+
+    public TecAdm(Funcionario fun){
+        this.setId(fun.getId());
+        this.setNome(fun.getNome());
+        this.setEmail(fun.getEmail());
+        this.setSenha(fun.getSenha());
+        this.setCpf(fun.getCpf());
+        this.setCargo("T");
+    }
+
     // MÉTODO PARA FINALIZAR UM CHAMADO
     public void finalizarChamado(Chamado chamado) {
         // NÃO PODEMOS FAZER ESSA PARTE AGORA, POIS AJUSTES SERÃO FEITOS EM BREVE
