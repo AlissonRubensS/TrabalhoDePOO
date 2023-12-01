@@ -13,7 +13,7 @@ public class Login {
 
     public Funcionario login() {
         
-        System.out.println("Digite seu nome de usuário:");
+        System.out.println("Digite seu email:");
         String username = scanner.next().strip();
         Email email = new Email(username);
 

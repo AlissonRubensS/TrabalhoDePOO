@@ -6,16 +6,20 @@ import com.mycompany.Model.Funcionario;
 
 public class LoginController {
     public static ArrayList<Funcionario> load(){
-        ArrayList<String> linhas = File.read("src\\main\\java\\com\\mycompany\\Database\\LoginUsers.txt");
+        ArrayList<String> linhas = File.read("src\\main\\java\\com\\mycompany\\Database\\Users.txt");
         ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
         
         for (String l : linhas) {
             String[] aux = l.split(" ");
+
             Funcionario f = new Funcionario();
-            Email email = new Email(aux[0].strip());
+            f.setId(Character.getNumericValue(aux[0].charAt(0)));
+            f.setNome(aux[1]);
+            Email email = new Email(aux[2]);
             f.setEmail(email);
-            f.setSenha(aux[1].strip());
-            f.setCargo(aux[2].strip());
+            f.setSenha(aux[3]);
+            f.setCargo(aux[4]);
+
             funcionarios.add(f);
         }
         

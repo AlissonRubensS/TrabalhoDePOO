@@ -35,7 +35,7 @@ public class Email {
 
     // CONSTRUTOR QUE ACEITA UM ENDEREÇO DE E-MAIL COMO ARGUMENTO
     public Email(String email) {
-        this.email = email;
+        this.setEmail(email);
     }
 
     // CONSTRUTOR PADRÃO VAZIO

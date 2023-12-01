@@ -57,4 +57,12 @@ public class CPF {
             this.cpf = this.cpfString2Array(cpf);
         }
     }
+
+    public String toString(){
+        String cpfString = "";
+        for (int i = 0; i < this.cpf.length; i++) {
+            cpfString = cpfString + cpf[i];
+        }
+        return cpfString; 
+    }
 }

@@ -14,8 +14,7 @@ public class Administrador extends Funcionario{
     // MÉTODO PARA CADASTRAR UM FUNCIONÁRIO
     public boolean cadastrarFuncionario(Funcionario funcionario) {
         try {            
-            File.write("src\\main\\java\\com\\mycompany\\Database\\Users.txt", funcionario.toString(funcionario));
-            File.write("src\\main\\java\\com\\mycompany\\Database\\LoginUsers.txt", (funcionario.getEmail() +" "+ funcionario.getSenha() +" "+ funcionario.getCargo()));
+            File.write("src\\main\\java\\com\\mycompany\\Database\\Users.txt", funcionario.toString());
             return true;
         } catch (Exception e) {
             return false;
