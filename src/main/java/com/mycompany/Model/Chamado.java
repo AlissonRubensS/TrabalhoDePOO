@@ -99,5 +99,9 @@ public class Chamado {
     public Requisicao getRequisicao() {
         return null;
     }
+    public void setStatus(String string) {
+    }
+    public void setRequisicao(Requisicao novaRequisicao) {
+    }
     
 }

@@ -40,7 +40,7 @@ public class Main {
                             }else if (func.getCargo().equals("T")) {
                                 //Area do Tecnico Administrativo
                                 TecAdm tec_adm = new TecAdm();
-                                TecAdmMenu tec_adm_menu = new TecAdmMenu(tec_adm, scanner);
+                                TecAdmView tec_adm_menu = new TecAdmView(tec_adm, scanner);
                                 tec_adm_menu.mostrarOpcoes();
 
                             }else{
@@ -65,5 +65,5 @@ public class Main {
         }
         scanner.close(); 
     }
-} // Teste 2
+} 
 

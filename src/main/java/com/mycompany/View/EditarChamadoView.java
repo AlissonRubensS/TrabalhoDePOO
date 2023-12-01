@@ -4,7 +4,7 @@ import java.util.Scanner;
 import com.mycompany.Model.Chamado;
 import com.mycompany.Model.Data;
 
-public class EditarChamado {
+public class EditarChamadoView {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {

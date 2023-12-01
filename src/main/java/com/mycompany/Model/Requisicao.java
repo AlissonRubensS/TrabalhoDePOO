@@ -10,12 +10,12 @@ public class Requisicao {
     private String nivel_urgencia;
 
     // GETTER PARA OBTER O ID
-    public int getId() {
+    public int getIdRequisicao() {
         return id;
     }
 
     // SETTER PARA DEFINIR O ID
-    public void setId(int id) {
+    public void setIdRequisicao(int id) {
         this.id = id;
     }
 
