@@ -6,7 +6,7 @@ import com.mycompany.Model.Funcionario;
 
 public class LoginController {
     public static ArrayList<Funcionario> load(){
-        ArrayList<String> linhas = File.read("src\\main\\java\\com\\mycompany\\Database\\Users.txt");
+        ArrayList<String> linhas = File.read("src\\main\\java\\com\\mycompany\\Database\\LoginUsers.txt");
         ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
         
         for (String l : linhas) {

@@ -1,4 +1,5 @@
 package com.mycompany.Model;
+import com.mycompany.Controller.*;
 
 public class Administrador extends Funcionario{
 
@@ -12,8 +13,13 @@ public class Administrador extends Funcionario{
 
     // MÉTODO PARA CADASTRAR UM FUNCIONÁRIO
     public boolean cadastrarFuncionario(Funcionario funcionario) {
-        funcionario = new Funcionario();
-        return true;
+        try {            
+            File.write("src\\main\\java\\com\\mycompany\\Database\\Users.txt", funcionario.toString(funcionario));
+            File.write("src\\main\\java\\com\\mycompany\\Database\\LoginUsers.txt", (funcionario.getEmail() +" "+ funcionario.getSenha() +" "+ funcionario.getCargo()));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     // MÉTODO PARA ALTERAR UM FUNCIONÁRIO COM BASE NO ID

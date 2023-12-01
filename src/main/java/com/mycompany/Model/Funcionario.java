@@ -22,6 +22,10 @@ public class Funcionario extends Pessoa {
         return true;
     }
     
+    public String toString(Funcionario funcionario){
+        return (this.getId() +" "+ this.getNome() +" "+ this.getEmail() +" "+ this.getSenha() +" "+ this.getCargo());
+    }
+
     public boolean equals(Funcionario funcionario){
         if (this.getEmail().equals(funcionario.getEmail())) {
             return true;
