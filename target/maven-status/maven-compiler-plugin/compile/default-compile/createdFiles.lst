@@ -7,9 +7,6 @@ com\mycompany\Controller\LoginController.class
 com\mycompany\Model\Data.class
 com\mycompany\Model\Docente.class
 com\mycompany\View\Login.class
-com\mycompany\View\TrabalhoPOO.class
-com\mycompany\Model\DocenteController.class
-com\mycompany\Model\DocenteView.class
 com\mycompany\Model\Email.class
 com\mycompany\Model\Requisicao.class
 com\mycompany\Model\Pessoa.class
