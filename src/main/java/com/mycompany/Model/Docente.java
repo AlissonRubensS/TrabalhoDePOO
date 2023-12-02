@@ -4,11 +4,10 @@ package com.mycompany.Model;
 import java.util.ArrayList;
 
 public class Docente extends Funcionario {
-    private ArrayList<Chamado> listaChamados;
+    private static ArrayList<Chamado> listaChamados = new ArrayList<>();
 
     public void adicionarChamado(Chamado chamado) {
-        Chamado novoChamado = new Chamado(chamado);
-        listaChamados.add(novoChamado);
+        listaChamados.add(chamado);
     }
 
     // MÉTODO PARA EXCLUIR UM CHAMADO
@@ -37,12 +36,22 @@ public class Docente extends Funcionario {
         }  
     }
 
-    public void exibirChamado(int id) {
+    public Chamado exibirChamado(int id) {
         for (int i=0;i<listaChamados.size();i++) {
             if(id==listaChamados.get(i).getId()){
-                System.out.println(listaChamados.get(i).getDetalhes());
+                return listaChamados.get(i);
             }
         }
+        return null;
+    }
+
+    public static boolean verificarID(int id) {
+        for (int i=0;i<listaChamados.size();i++) {
+            if(id==listaChamados.get(i).getId()){
+                return true;
+            }
+        }
+        return false;
     }
     
     public Docente(){
@@ -50,8 +59,5 @@ public class Docente extends Funcionario {
     }
     public Docente(Funcionario fun){
         super(fun.getNome(), fun.getCpf(), fun.getEmail(), fun.getSenha(), "D", fun.getId());
-    }
-    public String getDetalhesDocente() {
-        return "Nome: "+getNome()+"\nCargo: "+getCargo()+"\nEmail: "+getEmail();
     }
 }

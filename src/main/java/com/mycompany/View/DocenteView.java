@@ -17,17 +17,20 @@ public class DocenteView {
         int escolha;
         try{
             do{
+
             System.out.println("*******************************************************************");
             System.out.println("          AREA DO DOCENTE         ");
             System.out.println("        Bem-vindo, Professor!      ");
             System.out.println("\nO que deseja?");
             System.out.println("1. Criar Chamado");
-            System.out.println("2. Editar Chamado");
-            System.out.println("3. Excluir Chamado");
+            System.out.println("2. Exibir Chamado");
+            System.out.println("3. Editar Chamado");
+            System.out.println("4. Excluir Chamado");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opcao: ");
             escolha = scanner.nextInt();     
-            System.out.println("*******************************************************************");               
+            System.out.println("*******************************************************************");    
+
             switch (escolha) {
                 case 1:
                     Chamado novChamado = new Chamado();
@@ -37,14 +40,18 @@ public class DocenteView {
                     System.out.print("ID do seu chamado: ");
                     int id_cham = scanner.nextInt();
                     scanner.nextLine();
+                    if(Docente.verificarID(id_cham)==true){
+                        System.out.println("ID ja existente!\n");
+                        break;
+                    }
                     novChamado.setId(id_cham);
                     
                     System.out.print("Data: ");
                     String data = scanner.nextLine();
                     Data dt = new Data(data);
                     if(Data.verificarData(data)==false){
-                            System.out.println("Data invalida!");
-                            areaDocente();
+                            System.out.println("Data invalida!\n");
+                            break;
                     }
                     novChamado.setDataChamado(dt);
                     
@@ -63,82 +70,115 @@ public class DocenteView {
                     docente.adicionarChamado(novChamado);
                     System.out.println("Chamado adicionado com sucesso!\n");
                     break;
+
                 case 2:
+                    
+                    System.out.println("\nEXIBINDO UM CHAMADO\nPROCURAR O CHAMADO");
+                    System.out.print("ID do chamado: ");
+                    int id_cham3 = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if(docente.exibirChamado(id_cham3)==null){
+                        System.out.println("Chamado inexistente!\n");
+                    }else{
+                        System.out.println("\nDADOS DO CHAMADO");
+                        System.out.println(docente.exibirChamado(id_cham3).getDetalhes()+"\n");
+                    }
+                    break;
+
+                case 3:
                     
                     System.out.println("\nEDITANDO UM CHAMADO\nPROCURAR O CHAMADO");
                     System.out.print("ID do chamado: ");
                     int id_cham1 = scanner.nextInt();
                     scanner.nextLine();
-                    docente.exibirChamado(id_cham1);
-                    
-                    System.out.print("Esse eh o Chamado que deseja?");
-                    System.out.println("1. Sim");
-                    System.out.println("2. Nao");
-                    System.out.print("Escolha uma opcao: ");
-                    int escolha1 = scanner.nextInt();
-                    
-                    if(escolha1!=1||escolha1!=2) {
 
-                        System.out.println("Opcao incorreta!\n");
+                    if(docente.exibirChamado(id_cham1)==null){
+                        System.out.println("Chamado inexistente!\n");
+                    }else{
+            
+                        System.out.println("\n"+docente.exibirChamado(id_cham1).getDetalhes());
 
-                    }if(escolha1==1){
-                        System.out.println("\nEDITANDO UM CHAMADO\nPREENCHA OS NOVOS DADOS");
+                        System.out.println("\nEsse eh o chamado que deseja?");
+                        System.out.println("1. Sim");
+                        System.out.println("2. Nao");
+                        System.out.println("Escolha uma opcao: ");
+                        int escolha1 = scanner.nextInt();
+                        scanner.nextLine();
 
-                        System.out.print("Data: ");
-                        String data1 = scanner.nextLine();
-                        Data dt1 = new Data(data1);
-                        if(Data.verificarData(data1)==false){
-                            System.out.println("Data invalida!");
+                        if(escolha1==1){
+                            System.out.println("\nEDITANDO UM CHAMADO\nPREENCHA OS NOVOS DADOS");
+
+                            System.out.print("Data: ");
+                            String data1 = scanner.nextLine();
+                            Data dt1 = new Data(data1);
+                            if(Data.verificarData(data1)==false){
+                                System.out.println("Data invalida!\n");
+                                break;
+                            }
+                            Data novaData = dt1;
+
+                            System.out.print("Local: ");
+                            String local1 = scanner.nextLine();
+                            String novaLocal = local1;
+
+                            System.out.print("Objeto: ");
+                            String objeto1 = scanner.nextLine();
+                            String novoObjeto = objeto1;
+
+                            System.out.print("Descricao: ");
+                            String descricao1 = scanner.nextLine();
+                            String novaDescricao = descricao1;
+
+                            docente.editarChamado(id_cham1, novaData, novaLocal, novoObjeto, novaDescricao);
+                            System.out.println("Chamado editado com sucesso!\n");
+                        
+                        }else if(escolha1==2) {
+                            areaDocente();
+                        }else{
+                            System.out.println("Opcao invalida. Tente novamente.\n");
                             areaDocente();
                         }
-                        Data novaData = dt1;
-
-                        System.out.print("Local: ");
-                        String local1 = scanner.nextLine();
-                        String novaLocal = local1;
-
-                        System.out.print("Objeto: ");
-                        String objeto1 = scanner.nextLine();
-                        String novoObjeto = objeto1;
-
-                        System.out.print("Descricao: ");
-                        String descricao1 = scanner.nextLine();
-                        String novaDescricao = descricao1;
-
-                        docente.editarChamado(id_cham1, novaData, novaLocal, novoObjeto, novaDescricao);
-                        System.out.println("Chamado editado com sucesso!\n");
                     }
                     break;
-                case 3:
-                    
+                case 4:
+
                     System.out.println("\nEXCLUINDO UM CHAMADO\nPROCURAR O CHAMADO");
                     System.out.print("ID do chamado: ");
                     int id_cham2 = scanner.nextInt();
-                    docente.exibirChamado(id_cham2);
-                    
-                    System.out.print("Esse eh o Chamado que deseja?");
-                    System.out.println("1. Sim");
-                    System.out.println("2. Nao");
-                    System.out.print("Escolha uma opcao: ");
-                    int escolha2 = scanner.nextInt();
-                    
-                    if(escolha2!=1||escolha2!=2) {
+                    scanner.nextLine();
+
+                    if(docente.exibirChamado(id_cham2)==null){
+                        System.out.println("Chamado inexistente!\n");
+                    }else{
+
+                        System.out.println(docente.exibirChamado(id_cham2).getDetalhes());
+
+                        System.out.println("\nEsse eh o chamado que deseja?");
+                        System.out.println("1. Sim");
+                        System.out.println("2. Nao");
+                        System.out.println("Escolha uma opcao: ");
+                        int escolha2 = scanner.nextInt();
+                        scanner.nextLine();
                         
-                        System.out.println("Opcao incorreta!\n");
-                        
-                    }else if(escolha2==1){
-                        System.out.println("\nEXCLUINDO UM CHAMADO\nPREENCHA OS NOVOS DADOS");
-                        Chamado d1 = docente.excluirChamado(id_cham2);
-                        System.out.println("Chamado editado com sucesso!\n");
-                        System.out.println("Esse foi o Chamado excluido: ");
-                        System.out.println(d1.getDetalhes()+"\n");
+                        if(escolha2==1){
+
+                            docente.excluirChamado(id_cham2);
+                            System.out.println("Chamado excluido com sucesso!\n");
+
+                        }else if(escolha2==2) {
+                            return;
+                        }else{
+                            System.out.println("Opcao invalida. Tente novamente.\n");
+                            return;
+                        }
                     }
                     break;
                 case 0:
                     System.out.println("Saindo do programa...\n");
                     break;
                 default:
-                    System.out.println("Opção inválida. Tente novamente.");
+                    System.out.println("Opcao invalida. Tente novamente.\n");
                     break;
             }
             }while(escolha!=0);
