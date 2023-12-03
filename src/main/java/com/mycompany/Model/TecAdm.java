@@ -10,6 +10,15 @@ public class TecAdm extends Funcionario {
     private List<Requisicao> requisicoes = new ArrayList<>();
 
     public TecAdm() {
+        super();
+    }
+
+    public List<Chamado> getChamados() {
+        return chamados;
+    }
+
+    public List<Requisicao> getRequisicoes() {
+        return requisicoes;
     }
 
     public TecAdm(Funcionario fun) {
@@ -17,36 +26,79 @@ public class TecAdm extends Funcionario {
     }
 
     // MÉTODO PARA FINALIZAR UM CHAMADO
-    public void finalizarChamado(Chamado chamado) {
-        // NÃO PODEMOS FAZER ESSA PARTE AGORA, POIS AJUSTES SERÃO FEITOS EM BREVE
-        chamado.setStatus("Concluido");
-        System.out.println("Chamado finalizado com sucesso!");
+    public void finalizarChamado(int idChamado) {
+        Chamado chamado = selecionarChamadoPorId(idChamado);
+        if (chamado != null) {
+            chamado.setStatus("Concluído");
+        } else {
+
+        }
     }
 
     // MÉTODO PARA FORNECER FEEDBACK A UM CHAMADOFse
-    public String feedbackChamado(Chamado chamado) {
-        // NÃO PODEMOS FAZER ESSA PARTE AGORA, POIS AJUSTES SERÃO FEITOS EM BREVE
+    public String feedbackChamado(int idChamado) {
+        Chamado chamado = selecionarChamadoPorId(idChamado);
+        if (chamado != null) {
+            // IMPLEMENTAR A LÓGICA AINDA PARA OBTER O FEEDBACK
+            return "Feedback do Chamado";
+        } else {
+            return "Chamado não encontrado";
+        }
 
-        return "Feedback do chamado";
     }
 
     // MÉTODO PARA EDITAR UMA REQUISIÇÃO COM BASE EM UM CHAMADO
-    public void editarRequisicao(Data data_requisicao, String local, String objeto, String nivel_urgencia,
-            Requisicao requisicao) {
-        requisicao.setData_requisicao(data_requisicao);
-        requisicao.setLocal(local);
-        requisicao.setObjeto(objeto);
-        requisicao.setStatus(nivel_urgencia);
-        requisicao.setNivelUrgencia(nivel_urgencia);
+    public void editarRequisicao(int idRequisicao, Data novaData, String novoLocal, String novoObjeto,
+            String novoStatus, String novoNivelUrgencia) {
+        Requisicao requisicaoParaEditar = null;
 
+        // Encontrar a requisição com o ID fornecido
+        for (Requisicao requisicao : requisicoes) {
+            if (requisicao.getId() == idRequisicao) {
+                requisicaoParaEditar = requisicao;
+                break;
+            }
+        }
+
+        if (requisicaoParaEditar != null) {
+            try {
+                requisicaoParaEditar.setData_requisicao(novaData);
+                requisicaoParaEditar.setLocal(novoLocal);
+                requisicaoParaEditar.setObjeto(novoObjeto);
+                requisicaoParaEditar.setStatus(novoStatus);
+                requisicaoParaEditar.setNivelUrgencia(novoNivelUrgencia);
+            } catch (Exception e) {
+                // LIDAR COM AS EXCEÇÕES
+                e.printStackTrace();
+            }
+        } else {
+            // LÓGICA PARA O CASO DA REQUISIÇÃO NÃO SER ENCONTRADA
+        }
     }
 
     // MÉTODO PARA CRIAR UMA REQUISIÇÃO COM BASE EM UM CHAMADO
-    public void criarRequisicao(Chamado chamado) {
-        // NÃO PODEMOS FAZER ESSA PARTE AGORA, POIS AJUSTES SERÃO FEITOS EM BREVE
-        Requisicao novaRequisicao = new Requisicao();
-        requisicoes.add(novaRequisicao);
-        chamado.setRequisicao(novaRequisicao);
+    public void criarRequisicao(int idChamado, Data dataRequisicao, String localRequisicao, String objetoRequisicao,
+            String statusRequisicao, String nivelUrgenciaRequisicao) {
+        Chamado chamadoAssociado = selecionarChamadoPorId(idChamado);
+
+        if (chamadoAssociado != null) {
+            try {
+                Requisicao novaRequisicao = new Requisicao();
+                novaRequisicao.setData_requisicao(dataRequisicao);
+                novaRequisicao.setLocal(localRequisicao);
+                novaRequisicao.setObjeto(objetoRequisicao);
+                novaRequisicao.setStatus(statusRequisicao);
+                novaRequisicao.setNivelUrgencia(nivelUrgenciaRequisicao);
+
+                requisicoes.add(novaRequisicao);
+                chamadoAssociado.setRequisicao(novaRequisicao);
+                System.out.println("Requisição criada com sucesso!");
+            } catch (Exception e) {
+                System.out.println("Erro ao criar requisição: " + e.getMessage());
+            }
+        } else {
+            // CHAMDO NÃO SER ENCONTRADO
+        }
     }
 
     // MÉTODO PARA EXCLUIR UMA REQUISIÇÃO E RETORNAR O CHAMADO ASSOCIADO
@@ -89,4 +141,8 @@ public class TecAdm extends Funcionario {
     public void setChamado(Chamado chamado) {
         this.chamado = chamado;
     }
+
+    public void excluirRequisicao(int idChamadoExcluirRequisicao) {
+    }
+
 }

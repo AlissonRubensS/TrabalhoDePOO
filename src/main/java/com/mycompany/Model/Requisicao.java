@@ -3,11 +3,26 @@ package com.mycompany.Model;
 
 public class Requisicao {
     private int id;
-    private Data data_requisicao;
+    private Data data_requisicao;    
     private String local;
     private String objeto;
     private String status;
     private String nivel_urgencia;
+
+    public Requisicao(int id, Data data_requisicao, String local, String objeto, String status, String nivel_urgencia){
+        this.setId(id);
+        this.setData_requisicao(data_requisicao);
+        this.setLocal(local);
+        this.setObjeto(objeto);
+        this.setStatus(status);
+        this.setNivelUrgencia(nivel_urgencia);
+    }
+
+    public Requisicao() {
+    }
+
+    private void setId(int id2) {
+    }
 
     // GETTER PARA OBTER O ID
     public int getIdRequisicao() {
@@ -75,5 +90,9 @@ public class Requisicao {
         if ("Imediato".equals(nivel_urgencia) || "Relevante".equals(nivel_urgencia) || "Pouco relevante".equals(nivel_urgencia)) {
             this.nivel_urgencia = nivel_urgencia;
         }
+    }
+
+    public int getId() {
+        return 0;
     }
 }
