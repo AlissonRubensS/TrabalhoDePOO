@@ -55,4 +55,25 @@ public class File {
             
         }
     }
+
+    public static void overwriter(String caminho, ArrayList<String> texto){    
+        try {
+            FileWriter esc = new FileWriter(caminho);
+            BufferedWriter prt_esc = new BufferedWriter(esc);
+            for (String l : texto) {
+                prt_esc.write(l);
+            }
+            prt_esc.close();
+            
+        } catch(FileNotFoundException e){
+            System.out.println("Erro ao encontrar o arquivo" + " " + e.getMessage());
+            
+        }catch(IOException e){
+            System.out.println("Erro ao lê o arquivo" + " " + e.getMessage());;
+            
+        }catch(Exception e){
+            System.out.println("Erro desconhecido" + " " + e.getMessage());;
+            
+        }
+    }
 }

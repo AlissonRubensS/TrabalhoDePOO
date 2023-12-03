@@ -3,11 +3,17 @@ package com.mycompany.Model;
 
 import java.util.ArrayList;
 
-public class Docente extends Funcionario {
-    private static ArrayList<Chamado> listaChamados = new ArrayList<>();
+import com.mycompany.Controller.DocenteController;
+import com.mycompany.Controller.File;
 
-    public void adicionarChamado(Chamado chamado) {
-        listaChamados.add(chamado);
+public class Docente extends Funcionario {
+    private static ArrayList<Chamado> listaChamados;
+
+    public ArrayList<Chamado> adicionarChamado(Chamado chamado) {
+        listaChamados = DocenteController.carregar_chamado();
+        File.write("src\\main\\java\\com\\mycompany\\Database\\Chamado.txt", chamado.toString());
+        listaChamados = DocenteController.carregar_chamado();
+        return listaChamados;
     }
 
     // MÉTODO PARA EXCLUIR UM CHAMADO
@@ -16,6 +22,7 @@ public class Docente extends Funcionario {
             if(id==listaChamados.get(i).getId()){
                 Chamado chamadoExcluido = listaChamados.get(i);
                 listaChamados.remove(listaChamados.get(i));
+                File.overwriter("src\\main\\java\\com\\mycompany\\Database\\Chamado.txt", this.getArrayList() );
                 return chamadoExcluido;
             }
         }
@@ -32,8 +39,10 @@ public class Docente extends Funcionario {
                     listaChamados.get(i).setObjeto(objeto);
                     listaChamados.get(i).setNovaDescricao(novaDescricao);
                 }
+                File.write("src\\main\\java\\com\\mycompany\\Database\\Chamado.txt", listaChamados.get(i).toString());
             }
         }  
+
     }
 
     public Chamado exibirChamado(int id) {
@@ -59,5 +68,21 @@ public class Docente extends Funcionario {
     }
     public Docente(Funcionario fun){
         super(fun.getNome(), fun.getCpf(), fun.getEmail(), fun.getSenha(), "D", fun.getId());
+    }
+
+    public void setListaChamados(ArrayList<Chamado> listaChamados) {
+        Docente.listaChamados = listaChamados;
+    }
+
+    public static ArrayList<Chamado> getListaChamados() {
+        return listaChamados;
+    }
+
+    public ArrayList<String> getArrayList(){
+        ArrayList<String> linhas = new ArrayList<String>();
+        for (Chamado chamado : listaChamados) {
+            linhas.add(chamado.toString());
+        } 
+        return linhas;
     }
 }

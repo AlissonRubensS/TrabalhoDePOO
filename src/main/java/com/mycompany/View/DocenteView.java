@@ -1,10 +1,12 @@
 package com.mycompany.View;
 
 import java.util.*;
+
+import com.mycompany.Controller.DocenteController;
 import com.mycompany.Model.*;
 
 public class DocenteView {
-    
+     
     private Scanner scanner;
     private Docente docente;
 
@@ -16,6 +18,7 @@ public class DocenteView {
     public void areaDocente(){
         int escolha;
         try{
+            docente.setListaChamados(DocenteController.carregar_chamado());
             do{
 
             System.out.println("*******************************************************************");
