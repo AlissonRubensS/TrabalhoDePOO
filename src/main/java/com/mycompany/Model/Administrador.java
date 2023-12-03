@@ -6,6 +6,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+//import java.util.ArrayList;
+//import java.util.List;
+//import com.mycompany.Controller.*;
 
 public class Administrador extends Funcionario {
 
@@ -80,7 +83,13 @@ public class Administrador extends Funcionario {
     }
 
     // MÉTODO PARA VALIDAR UMA REQUISIÇÃO
-    public void validarRequisicao() {
-        // NÃO PODEMOS FAZER ESSA PARTE AGORA, POIS AJUSTES SERÃO FEITOS EM BREVE
+    public boolean validarRequisicao(int idRequisicao) {
+//        for (Requisicao requisicao : requisicoesPendentes) {
+//            if (requisicao.getIdRequisicao() == idRequisicao) {
+//                requisicao.setStatus("Concluido");
+//                return true; // Requisição validada com sucesso
+//            }
+//        }
+        return false; // Falha ao validar: ID de requisição não encontrado
     }
 }

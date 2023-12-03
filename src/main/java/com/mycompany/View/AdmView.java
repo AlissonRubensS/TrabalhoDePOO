@@ -84,9 +84,17 @@ public class AdmView {
                     break;
                 
                 case 4:
-                    adm.validarRequisicao();
+                    System.out.println("Digite o ID da requisição");
+                    int id_ValRequisicao = scanner.nextInt();
+                    scanner.nextLine();
+                    
+                    if (adm.validarRequisicao(id_ValRequisicao)) {
+                        System.out.println("Requisição validada com sucesso!");
+                    } else {
+                        System.out.println("Falha ao validar a requisição.");
+                    }
                     break;
-                
+                                    
                 case 0:
                     System.out.println("Saindo...");
                     break;
