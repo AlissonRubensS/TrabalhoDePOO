@@ -1,4 +1,6 @@
 package com.mycompany.Model;
+import java.util.ArrayList;
+
 import com.mycompany.Controller.*;
 
 public class Administrador extends Funcionario{
@@ -22,12 +24,19 @@ public class Administrador extends Funcionario{
     }
 
     // MÉTODO PARA ALTERAR UM FUNCIONÁRIO COM BASE NO ID
-    public void alterarFuncionario(String nome, CPF cpf, Email email, String senha, String cargo) {
-        this.setNome(nome);
-        this.setCpf(cpf);
-        this.setEmail(email);
-        this.setSenha(senha);
-        this.setCargo(cargo);
+    public void alterarFuncionario(int id, String nome_novo, CPF cpf_novo, Email email_novo, String senha_nova, String cargo_novo) {
+        ArrayList<Funcionario> funcionarios = LoginController.load();
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getId() == id) {
+                funcionario.setNome(nome_novo);
+                funcionario.setCpf(cpf_novo);
+                funcionario.setEmail(email_novo);
+                funcionario.setSenha(senha_nova);
+                funcionario.setCargo(cargo_novo);
+                break;
+            }
+            File.write("src\\main\\java\\com\\mycompany\\Database\\Users.txt", funcionario.toString());
+        }
     }
 
     // MÉTODO PARA REMOVER UM FUNCIONÁRIO COM BASE NO ID
@@ -39,5 +48,9 @@ public class Administrador extends Funcionario{
     // MÉTODO PARA VALIDAR UMA REQUISIÇÃO
     public void validarRequisicao() {
         // NÃO PODEMOS FAZER ESSA PARTE AGORA, POIS AJUSTES SERÃO FEITOS EM BREVE
+    }
+
+    public String toString(){
+        return super.toString();
     }
 }

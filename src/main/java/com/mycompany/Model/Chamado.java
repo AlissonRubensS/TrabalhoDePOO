@@ -30,6 +30,10 @@ public class Chamado {
         this.setNovaDescricao(nova_descricao);
     }
 
+    public String toString(){
+        return (id + "-=-" + data_chamado + "-=-" + local + "-=-" + objeto + "-=-" + nova_descricao);
+    }
+
     // MÉTODO GETTER PARA OBTER O IDENTIFICADOR DO CHAMADO
     public int getId() {
         return id;

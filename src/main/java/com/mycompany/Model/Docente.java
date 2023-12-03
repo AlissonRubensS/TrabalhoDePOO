@@ -3,8 +3,11 @@ package com.mycompany.Model;
 
 import java.util.ArrayList;
 
+import com.mycompany.Controller.DocenteController;
+import com.mycompany.Controller.File;
+
 public class Docente extends Funcionario {
-    private static ArrayList<Chamado> listaChamados = new ArrayList<>();
+    private static ArrayList<Chamado> listaChamados;
 
     public void adicionarChamado(Chamado chamado) {
         listaChamados.add(chamado);
@@ -59,5 +62,8 @@ public class Docente extends Funcionario {
     }
     public Docente(Funcionario fun){
         super(fun.getNome(), fun.getCpf(), fun.getEmail(), fun.getSenha(), "D", fun.getId());
+        DocenteController docenteController = new DocenteController(this);
+        this.listaChamados = docenteController.getChamados();
     }
+
 }

@@ -44,14 +44,18 @@ public class Data {
 
     // MÉTODO SETTER PARA DEFINIR A DATA, VERIFICANDO SE É VÁLIDA
     public void setData(String data) {
-    if (Data.verificarData(data)) {
-        this.data = data; 
-        String[] aux = data.split("/");
-        this.dia = Integer.parseInt(aux[0]);
-        this.mes = Integer.parseInt(aux[1]);
-        this.ano = Integer.parseInt(aux[2]);
+        if (Data.verificarData(data)) {
+            this.data = data; 
+            String[] aux = data.split("/");
+            this.dia = Integer.parseInt(aux[0]);
+            this.mes = Integer.parseInt(aux[1]);
+            this.ano = Integer.parseInt(aux[2]);
+        }
     }
-}
+
+    public String toString(){
+        return (dia + "/" + mes + "/" + ano);
+    }
 
     // MÉTODO GETTER PARA OBTER O DIA DA DATA ATUAL
     public int getDia() {

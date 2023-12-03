@@ -18,7 +18,7 @@ public class Main {
                     System.out.println("Bem Vindo(a) ao Sistema de Chamados e Requisições!");
                     System.out.println("Digite uma das opções abaixo:\n");
                     System.out.println("[1] - Login");
-                    System.out.println("[2] - Sair");
+                    System.out.println("[0] - Sair");
                     System.out.println("\n*******************************************************************");
                     int option = scanner.nextInt();
                     switch (option) {
@@ -48,7 +48,7 @@ public class Main {
                             }
                             
                             break;
-                        case 2:
+                        case 0:
                             System.out.println("Saindo ...");
                             control = false;
                             break;

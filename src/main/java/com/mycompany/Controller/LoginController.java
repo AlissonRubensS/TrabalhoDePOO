@@ -10,7 +10,7 @@ public class LoginController {
         ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
         
         for (String l : linhas) {
-            String[] aux = l.split(" ");
+            String[] aux = l.split("-=-");
 
             Funcionario f = new Funcionario();
             f.setId(Character.getNumericValue(aux[0].charAt(0)));

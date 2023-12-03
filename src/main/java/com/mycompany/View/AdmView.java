@@ -54,7 +54,7 @@ public class AdmView {
                     System.out.println("digite a senha do funcionario:");
                     senha = scanner.nextLine();
 
-                    System.out.println("digite o cargo do funcionario:");
+                    System.out.println("digite o cargo do funcionario (A/D/T):");
                     cargo = scanner.nextLine();
 
                     Funcionario funcionario = new Funcionario(nome, cpf, email, senha, cargo, id);
@@ -62,12 +62,27 @@ public class AdmView {
                     adm.cadastrarFuncionario(funcionario);
                     break;
                 case 2:
-                    String nome_alterar = adm.getNome();
-                    CPF cpf_alterar = adm.getCpf();
-                    Email email_alterar = adm.getEmail();
-                    String senha_alterar = adm.getSenha();
-                    String cargo_alterar = adm.getCargo();
-                    adm.alterarFuncionario(nome_alterar, cpf_alterar, email_alterar, senha_alterar, cargo_alterar);
+                    System.out.println("digite o id do funcionario:");
+                    int id_alterar = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.println("digite o nome do funcionario:");
+                    String nome_alterar = scanner.nextLine();
+                    
+                    System.out.println("digite o CPF do funcionario:");
+                    String cpf_String2 = scanner.nextLine();
+                    CPF cpf_alterar = new CPF(cpf_String2);
+
+                    System.out.println("digite o Email do funcionario:");
+                    String email_String2 = scanner.nextLine();
+                    Email email_alterar = new Email(email_String2);
+
+                    System.out.println("digite a senha do funcionario:");
+                    String senha_alterar = scanner.nextLine();
+
+                    System.out.println("digite o cargo do funcionario (A/D/T):");
+                    String cargo_alterar = scanner.nextLine();
+                    adm.alterarFuncionario(id_alterar,nome_alterar, cpf_alterar, email_alterar, senha_alterar, cargo_alterar);
                     break;
                 case 3:
                     int id_remover = adm.getId();

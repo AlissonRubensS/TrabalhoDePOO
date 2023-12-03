@@ -1,6 +1,8 @@
 package com.mycompany.View;
 
 import java.util.*;
+
+import com.mycompany.Controller.DocenteController;
 import com.mycompany.Model.*;
 
 public class DocenteView {
@@ -15,6 +17,7 @@ public class DocenteView {
 
     public void areaDocente(){
         int escolha;
+        DocenteController docenteController = new DocenteController(docente);
         try{
             do{
 
@@ -174,6 +177,9 @@ public class DocenteView {
                         }
                     }
                     break;
+                case 5:
+                    this.mostrarChamados();
+                    break;
                 case 0:
                     System.out.println("Saindo do programa...\n");
                     break;
@@ -186,5 +192,21 @@ public class DocenteView {
             System.out.println("ERRO: "+e.getMessage());
         }
         
+    }
+
+    public void buscarChamado(int id, ArrayList<Chamado> listaChamados) {
+        for (int i=0;i<listaChamados.size();i++) {
+            if(id==listaChamados.get(i).getId()){
+                System.out.println(listaChamados.get(i).getDetalhes());
+            }
+        }
+    }
+
+    public void mostrarChamados(){
+        DocenteController docenteController = new DocenteController(docente);
+        ArrayList<Chamado> chamados = docenteController.getChamados();
+        for (Chamado chamado : chamados) {
+            System.out.println(chamado.getDetalhes());
+        }
     }
 }
