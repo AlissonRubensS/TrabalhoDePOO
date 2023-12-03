@@ -29,8 +29,8 @@ public class AdmView {
                 opcao = scanner.nextInt();
                 scanner.nextLine();
                 switch (opcao) {
+
                     case 1:
-                    
                     String nome, senha, cargo, cpf_String, email_String;
                     int id;
                     CPF cpf;
@@ -61,6 +61,7 @@ public class AdmView {
 
                     adm.cadastrarFuncionario(funcionario);
                     break;
+
                 case 2:
                     String nome_alterar = adm.getNome();
                     CPF cpf_alterar = adm.getCpf();
@@ -69,17 +70,28 @@ public class AdmView {
                     String cargo_alterar = adm.getCargo();
                     adm.alterarFuncionario(nome_alterar, cpf_alterar, email_alterar, senha_alterar, cargo_alterar);
                     break;
+               
                 case 3:
-                    int id_remover = adm.getId();
-                    adm.removerFuncionario(id_remover);
+                    System.out.println("Digite o ID do funcionario a ser removido:");
+                    int id_remover = scanner.nextInt();
+                    scanner.nextLine();
+                
+                    if (adm.removerFuncionario(id_remover)) {
+                        System.out.println("Funcionário removido com sucesso!");
+                    } else {
+                        System.out.println("Falha ao remover o funcionário. Verifique o ID informado.");
+                    }
                     break;
+                
                 case 4:
                     adm.validarRequisicao();
                     break;
+                
                 case 0:
                     System.out.println("Saindo...");
                     break;
-                default:
+                
+                default:        
                     System.out.println("Opção inválida. Tente novamente.");
                     break;
 
