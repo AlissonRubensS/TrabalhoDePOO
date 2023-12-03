@@ -1,22 +1,38 @@
 package com.mycompany.Model;
-import com.mycompany.Controller.*;
 
-public class Administrador extends Funcionario{
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+//import java.util.ArrayList;
+//import java.util.List;
+//import com.mycompany.Controller.*;
+
+public class Administrador extends Funcionario {
 
     public Administrador() {
         // CONSTRUTOR
     }
 
-    public Administrador(Funcionario fun){
+    public Administrador(Funcionario fun) {
         super(fun.getNome(), fun.getCpf(), fun.getEmail(), fun.getSenha(), "D", fun.getId());
     }
 
     // MÉTODO PARA CADASTRAR UM FUNCIONÁRIO
     public boolean cadastrarFuncionario(Funcionario funcionario) {
-        try {            
-            File.write("src\\main\\java\\com\\mycompany\\Database\\Users.txt", funcionario.toString());
+        try {
+            FileWriter fileWriter = new FileWriter("src/main/java/com/mycompany/Database/Users.txt", true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+    
+            bufferedWriter.write(funcionario.toString());
+            bufferedWriter.newLine(); // Adiciona uma nova linha para o próximo funcionário
+            bufferedWriter.close();
+    
             return true;
-        } catch (Exception e) {
+        } catch (IOException e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -31,9 +47,39 @@ public class Administrador extends Funcionario{
     }
 
     // MÉTODO PARA REMOVER UM FUNCIONÁRIO COM BASE NO ID
-    public Funcionario removerFuncionario(int id) {
-        // NÃO PODEMOS FAZER ESSA PARTE AGORA, POIS AJUSTES SERÃO FEITOS EM BREVE
-        return null;
+    public boolean removerFuncionario(int id) {
+        try {
+            File inputFile = new File("src\\main\\java\\com\\mycompany\\Database\\Users.txt");
+            File tempFile = new File("src\\main\\java\\com\\mycompany\\Database\\tempUsers.txt");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String linhaAtual;
+
+            while ((linhaAtual = reader.readLine()) != null) {
+                String[] dadosFuncionario = linhaAtual.split(" ");
+
+                int idFuncionario = Integer.parseInt(dadosFuncionario[0]);
+
+                if (idFuncionario != id) {
+                    writer.write(linhaAtual + System.getProperty("line.separator"));
+                }
+            }
+
+            writer.close();
+            reader.close();
+
+            // Renomeia o arquivo 
+            if (!tempFile.renameTo(inputFile)) {
+                throw new IOException("Não foi possível renomear o arquivo temporário");
+            }
+
+            return true; // Funcionário removido com sucesso
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false; // Falha 
+        }
     }
 
     // MÉTODO PARA VALIDAR UMA REQUISIÇÃO
