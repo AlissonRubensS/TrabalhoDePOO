@@ -10,10 +10,10 @@ public class LoginController {
         ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
         
         for (String l : linhas) {
-            String[] aux = l.split(" ");
+            String[] aux = l.split("-=-");
 
             Funcionario f = new Funcionario();
-            f.setId(Character.getNumericValue(aux[0].charAt(0)));
+            f.setId(Integer.parseInt(aux[0]));
             f.setNome(aux[1]);
             Email email = new Email(aux[2]);
             f.setEmail(email);
