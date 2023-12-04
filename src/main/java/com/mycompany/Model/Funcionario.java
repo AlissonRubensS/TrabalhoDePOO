@@ -1,12 +1,9 @@
 
 package com.mycompany.Model;
 import com.mycompany.Controller.*;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import com.mycompany.Controller.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Funcionario extends Pessoa {
     private String cargo; // PRPRIEDADE QUE ARMAZENA O CARGO DO FUNCIONÁRIO
@@ -21,12 +18,14 @@ public class Funcionario extends Pessoa {
         int max = 9999;
         int id = (int)Math.floor(Math.random() * (max - min + 1) + min);
        
-       ArrayList <String> content = file.read("../Database/Users.txt");
-
-       for (int i=0;i<content.size();i++) {
-            if(id==content.get(i).getId()){
+        ArrayList <String> content = File.read("../Database/Users.txt");
+        for (int i=0;i<content.size();i++) {
+            String id2String[] = content.get(i).split("-=-");
+            if(id==Integer.parseInt(id2String[0])){
                 geraid();
-        }return id;
+            }
+        }
+        return id;
     }
 
     // SETTER PARA DEFINIR O CARGO DO FUNCIONÁRIO COM VALIDAÇÃO
