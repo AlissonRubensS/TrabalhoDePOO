@@ -48,17 +48,17 @@ public class Administrador extends Funcionario {
 
     // MÉTODO PARA REMOVER UM FUNCIONÁRIO COM BASE NO ID
     public boolean removerFuncionario(int id) {
-        try {
-            File inputFile = new File("src\\main\\java\\com\\mycompany\\Database\\Users.txt");
-            File tempFile = new File("src\\main\\java\\com\\mycompany\\Database\\tempUsers.txt");
+    try {
+        File userFile = new File("src\\main\\java\\com\\mycompany\\Database\\Users.txt");
+        File tempFile = new File("src\\main\\java\\com\\mycompany\\Database\\tempUsers.txt");
 
-            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+        BufferedReader reader = new BufferedReader(new FileReader(userFile));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
             String linhaAtual;
 
             while ((linhaAtual = reader.readLine()) != null) {
-                String[] dadosFuncionario = linhaAtual.split(" ");
+                String[] dadosFuncionario = linhaAtual.split("-=-");
 
                 int idFuncionario = Integer.parseInt(dadosFuncionario[0]);
 
@@ -71,9 +71,11 @@ public class Administrador extends Funcionario {
             reader.close();
 
             // Renomeia o arquivo 
-            if (!tempFile.renameTo(inputFile)) {
-                throw new IOException("Não foi possível renomear o arquivo temporário");
-            }
+            if (tempFile.renameTo(new File("src\\main\\java\\com\\mycompany\\Database\\Users.txt"))) {
+                System.out.println("Arquivo renomeado com sucesso!");
+            } else {
+                System.out.println("Falha ao renomear o arquivo!");
+            }           
 
             return true; // Funcionário removido com sucesso
         } catch (IOException e) {
