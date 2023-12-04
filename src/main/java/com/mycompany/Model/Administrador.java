@@ -6,9 +6,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-//import java.util.ArrayList;
-//import java.util.List;
-//import com.mycompany.Controller.*;
 
 public class Administrador extends Funcionario {
 
@@ -84,12 +81,50 @@ public class Administrador extends Funcionario {
 
     // MÉTODO PARA VALIDAR UMA REQUISIÇÃO
     public boolean validarRequisicao(int idRequisicao) {
-//        for (Requisicao requisicao : requisicoesPendentes) {
-//            if (requisicao.getIdRequisicao() == idRequisicao) {
-//                requisicao.setStatus("Concluido");
-//                return true; // Requisição validada com sucesso
-//            }
-//        }
-        return false; // Falha ao validar: ID de requisição não encontrado
+        try {
+            File userFile = new File("src\\main\\java\\com\\mycompany\\Database\\Users.txt");
+            File tempFile = new File("src\\main\\java\\com\\mycompany\\Database\\tempUsers.txt");
+
+            BufferedReader reader = new BufferedReader(new FileReader(userFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String linhaAtual;
+
+            while ((linhaAtual = reader.readLine()) != null) {
+                String[] dadosRequisicao = linhaAtual.split("-=-");
+
+                int idRequisicaoAtual = Integer.parseInt(dadosRequisicao[0]);
+
+                if (idRequisicaoAtual == idRequisicao) {
+                    // Realiza a validação da requisição mudando seu status
+                    if ("Pendente".equals(dadosRequisicao[4])) {
+                        dadosRequisicao[4] = "Concluido";
+                        linhaAtual = String.join("-=-", dadosRequisicao);
+                    }
+                }
+                
+                writer.write(linhaAtual + System.getProperty("line.separator"));
+            }
+
+            writer.close();
+            reader.close();
+
+            // Remover o arquivo original
+            if (!userFile.delete()) {
+                System.out.println("Falha ao deletar o arquivo original!");
+                return false;
+            }
+
+            // Renomear o arquivo temporário para o nome do arquivo original
+            if (!tempFile.renameTo(userFile)) {
+                System.out.println("Falha ao renomear o arquivo temporário!");
+                return false;
+            }
+
+            return true; // Operação concluída com sucesso
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false; // Falha 
+        }
     }
 }
