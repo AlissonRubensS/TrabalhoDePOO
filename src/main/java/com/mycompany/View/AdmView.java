@@ -91,7 +91,7 @@ public class AdmView {
                     break;
                
                 case 3:
-                    System.out.println("Digite a matricula do funcionario a ser removido:");
+                    System.out.println("Digite a do funcionario a ser removido:");
                     int id_remover = scanner.nextInt();
                     scanner.nextLine();
                 
