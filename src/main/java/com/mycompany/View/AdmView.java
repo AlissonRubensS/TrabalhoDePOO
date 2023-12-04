@@ -30,15 +30,11 @@ public class AdmView {
                 scanner.nextLine();
                 switch (opcao) {
 
-                    case 1:
+                case 1:
                     String nome, senha, cargo, cpf_String, email_String;
-                    int id;
+                    int id = Funcionario.geraid();
                     CPF cpf;
                     Email email;
-                    
-                    System.out.println("digite o id do funcionario:");
-                    id = scanner.nextInt();
-                    scanner.nextLine();
                     
                     System.out.println("digite o nome do funcionario:");
                     nome = scanner.nextLine();

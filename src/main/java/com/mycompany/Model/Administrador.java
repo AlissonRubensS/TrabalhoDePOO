@@ -58,7 +58,7 @@ public class Administrador extends Funcionario {
             String linhaAtual;
 
             while ((linhaAtual = reader.readLine()) != null) {
-                String[] dadosFuncionario = linhaAtual.split(" ");
+                String[] dadosFuncionario = linhaAtual.split("-=-");
 
                 int idFuncionario = Integer.parseInt(dadosFuncionario[0]);
 

@@ -1,12 +1,9 @@
 
 package com.mycompany.Model;
-import com.mycompany.Controller.*;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import com.mycompany.Controller.File;
+
+import java.io.*;
+import java.util.ArrayList;
 
 public class Funcionario extends Pessoa {
     private String cargo; // PRPRIEDADE QUE ARMAZENA O CARGO DO FUNCIONÁRIO
@@ -16,17 +13,19 @@ public class Funcionario extends Pessoa {
         return cargo;
     }
     // METODO PARA GERAR O ID
-    public int geraid(){
+    public static int geraid(){
         int min = 1000;
         int max = 9999;
         int id = (int)Math.floor(Math.random() * (max - min + 1) + min);
        
-       ArrayList <String> content = file.read("../Database/Users.txt");
-
-       for (int i=0;i<content.size();i++) {
-            if(id==content.get(i).getId()){
+        ArrayList <String> content = File.read("src\\main\\java\\com\\mycompany\\Database\\Users.txt");
+        for (int i=0;i<content.size();i++) {
+            String splitId[] = content.get(i).split("-=-");
+            if(id==Integer.parseInt(splitId[0])){
                 geraid();
-        }return id;
+            }
+        }
+        return id;
     }
 
     // SETTER PARA DEFINIR O CARGO DO FUNCIONÁRIO COM VALIDAÇÃO
@@ -43,7 +42,7 @@ public class Funcionario extends Pessoa {
     }
     
     public String toString(){
-        return (this.getId() +" "+ this.getNome() +" "+ this.getEmail() +" "+ this.getSenha() +" "+ this.getCargo() +" "+ this.getCpf());
+        return (this.getId() +"-=-"+ this.getNome() +"-=-"+ this.getEmail() +"-=-"+ this.getSenha() +"-=-"+ this.getCargo() +"-=-"+ this.getCpf());
     }
 
     public boolean equals(Funcionario funcionario){

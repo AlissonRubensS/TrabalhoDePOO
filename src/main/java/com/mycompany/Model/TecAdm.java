@@ -3,6 +3,8 @@ package com.mycompany.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mycompany.Controller.TecAdmController;
+
 public class TecAdm extends Funcionario {
     private Chamado chamado;
 
@@ -77,8 +79,7 @@ public class TecAdm extends Funcionario {
     }
 
     // MÉTODO PARA CRIAR UMA REQUISIÇÃO COM BASE EM UM CHAMADO
-    public void criarRequisicao(int idChamado, Data dataRequisicao, String localRequisicao, String objetoRequisicao,
-            String statusRequisicao, String nivelUrgenciaRequisicao) {
+    public void criarRequisicao(int idChamado, Data dataRequisicao, String localRequisicao, String objetoRequisicao, String statusRequisicao, String nivelUrgenciaRequisicao) {
         Chamado chamadoAssociado = selecionarChamadoPorId(idChamado);
 
         if (chamadoAssociado != null) {
@@ -92,12 +93,10 @@ public class TecAdm extends Funcionario {
 
                 requisicoes.add(novaRequisicao);
                 chamadoAssociado.setRequisicao(novaRequisicao);
-                System.out.println("Requisição criada com sucesso!");
+                TecAdmController.cadastrar_requisicao(novaRequisicao);
             } catch (Exception e) {
                 System.out.println("Erro ao criar requisição: " + e.getMessage());
             }
-        } else {
-            // CHAMDO NÃO SER ENCONTRADO
         }
     }
 
