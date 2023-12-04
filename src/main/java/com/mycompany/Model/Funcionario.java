@@ -42,7 +42,7 @@ public class Funcionario extends Pessoa {
     }
     
     public String toString(){
-        return (this.getId() +" "+ this.getNome() +" "+ this.getEmail() +" "+ this.getSenha() +" "+ this.getCargo() +" "+ this.getCpf());
+        return (this.getId() +"-=-"+ this.getNome() +"-=-"+ this.getEmail() +"-=-"+ this.getSenha() +"-=-"+ this.getCargo() +"-=-"+ this.getCpf());
     }
 
     public boolean equals(Funcionario funcionario){
