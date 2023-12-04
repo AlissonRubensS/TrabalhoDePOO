@@ -10,6 +10,7 @@ public class TecAdm extends Funcionario {
     private List<Requisicao> requisicoes = new ArrayList<>();
 
     public TecAdm() {
+        //this.chamados = 
         super();
     }
 
@@ -77,8 +78,7 @@ public class TecAdm extends Funcionario {
     }
 
     // MÉTODO PARA CRIAR UMA REQUISIÇÃO COM BASE EM UM CHAMADO
-    public void criarRequisicao(int idChamado, Data dataRequisicao, String localRequisicao, String objetoRequisicao,
-            String statusRequisicao, String nivelUrgenciaRequisicao) {
+    public void criarRequisicao(int idChamado, Data dataRequisicao, String localRequisicao, String objetoRequisicao, String statusRequisicao, String nivelUrgenciaRequisicao) {
         Chamado chamadoAssociado = selecionarChamadoPorId(idChamado);
 
         if (chamadoAssociado != null) {
@@ -92,12 +92,9 @@ public class TecAdm extends Funcionario {
 
                 requisicoes.add(novaRequisicao);
                 chamadoAssociado.setRequisicao(novaRequisicao);
-                System.out.println("Requisição criada com sucesso!");
             } catch (Exception e) {
                 System.out.println("Erro ao criar requisição: " + e.getMessage());
             }
-        } else {
-            // CHAMDO NÃO SER ENCONTRADO
         }
     }
 

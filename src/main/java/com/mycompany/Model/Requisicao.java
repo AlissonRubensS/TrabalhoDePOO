@@ -21,16 +21,13 @@ public class Requisicao {
     public Requisicao() {
     }
 
-    private void setId(int id2) {
-    }
-
     // GETTER PARA OBTER O ID
     public int getIdRequisicao() {
         return id;
     }
 
     // SETTER PARA DEFINIR O ID
-    public void setIdRequisicao(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -93,6 +90,10 @@ public class Requisicao {
     }
 
     public int getId() {
-        return 0;
+        return id;
+    }
+
+    public String toString(){
+        return (id +"-=-"+ data_requisicao +"-=-"+ local +"-=-"+ objeto +"-=-"+ status +"-=-"+ nivel_urgencia);
     }
 }
