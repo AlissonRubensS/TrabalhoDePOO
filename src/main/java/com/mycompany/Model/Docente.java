@@ -53,6 +53,13 @@ public class Docente extends Funcionario {
         }
         return null;
     }
+    public ArrayList<String> listarChamado() {
+        ArrayList<String> aux = new ArrayList<String>();
+        for (Chamado chamado : listaChamados) {
+            aux.add(chamado.getDetalhes());
+        }
+        return aux;
+    }
 
     public static boolean verificarID(int id) {
         for (int i=0;i<listaChamados.size();i++) {

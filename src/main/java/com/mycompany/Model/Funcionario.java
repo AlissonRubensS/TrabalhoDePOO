@@ -13,12 +13,12 @@ public class Funcionario extends Pessoa {
         return cargo;
     }
     // METODO PARA GERAR O ID
-    public int geraid(){
+    public static int geraid(){
         int min = 1000;
         int max = 9999;
         int id = (int)Math.floor(Math.random() * (max - min + 1) + min);
        
-        ArrayList <String> content = File.read("../Database/Users.txt");
+        ArrayList <String> content = File.read("src\\main\\java\\com\\mycompany\\Database\\Users.txt");
         for (int i=0;i<content.size();i++) {
             String id2String[] = content.get(i).split("-=-");
             if(id==Integer.parseInt(id2String[0])){

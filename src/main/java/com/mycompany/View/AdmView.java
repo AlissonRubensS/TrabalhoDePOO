@@ -31,12 +31,12 @@ public class AdmView {
                 switch (opcao) {
 
                     case 1:
-                    String nome, senha, cargo, cpf_String, email_String;
-                    int id;
+                    String nome, cargo, senha, cpf_String, email_String;
+                    int id, cargoEscolha;
                     CPF cpf;
                     Email email;
                     
-                    System.out.println("digite o id do funcionario:");
+                    System.out.println("digite sua matricula:");
                     id = scanner.nextInt();
                     scanner.nextLine();
                     
@@ -54,9 +54,28 @@ public class AdmView {
                     System.out.println("digite a senha do funcionario:");
                     senha = scanner.nextLine();
 
-                    System.out.println("digite o cargo do funcionario:");
-                    cargo = scanner.nextLine();
+                    System.out.println("escolha o cargo do funcionario:");
+                    System.out.println("1. Administrador");
+                    System.out.println("2. Tecnico Administrativo");
+                    System.out.println("3. Docente");
 
+                    cargoEscolha = scanner.nextInt();
+                    scanner.nextLine();
+                    switch (cargoEscolha) {
+                        case 1:
+                            cargo = "A";
+                            break;
+                        case 2:
+                            cargo = "T";
+                            break;
+                        case 3:
+                            cargo = "D";
+                            break;
+                    
+                        default:
+                            cargo=null;
+                            break;
+                    }
                     Funcionario funcionario = new Funcionario(nome, cpf, email, senha, cargo, id);
 
                     adm.cadastrarFuncionario(funcionario);

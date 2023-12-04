@@ -2,10 +2,11 @@ package com.mycompany.View;
 
 import java.util.List;
 import java.util.Scanner;
-import com.mycompany.Model.TecAdm;
+
 import com.mycompany.Model.Chamado;
 import com.mycompany.Model.Data;
 import com.mycompany.Model.Requisicao;
+import com.mycompany.Model.TecAdm;
 
 public class TecAdmView {
 
@@ -54,10 +55,11 @@ public class TecAdmView {
                         break;
                     case 3:
                         try {
-                            System.out.println("Informe o ID do chamado para criar a requisição:");
-                            int idChamadoCriarRequisicao = scanner.nextInt();
-                            scanner.nextLine();
 
+                            System.out.println("Informe o ID do chamado para gerar uma requisicao:");
+                            int idChamado = scanner.nextInt();
+                            scanner.nextLine();
+                            
                             System.out.println("Informe a data da requisição (no formato DIA/MÊS/ANO):");
                             String dataRequisicaoInput = scanner.nextLine();
 
@@ -67,16 +69,57 @@ public class TecAdmView {
                             System.out.println("Informe o objeto da requisição:");
                             String objetoRequisicao = scanner.nextLine();
 
-                            System.out.println("Informe o status da requisição:");
-                            String statusRequisicao = scanner.nextLine();
+                            System.out.println("Escolha o status da requisição");
+                            System.out.println("1. Pendente");
+                            System.out.println("2. Andamento");
+                            System.out.println("3. Concluido");
 
-                            System.out.println("Informe o nível de urgência da requisição:");
-                            String nivelUrgenciaRequisicao = scanner.nextLine();
+                            int statusInt = scanner.nextInt();
+                            String statuString;
+                            scanner.nextLine();
+                            switch (statusInt) {
+                            case 1:
+                                statuString = "Pendente";
+                                break;
+                            case 2:
+                                statuString = "Andamento";
+                                break;
+                            case 3:
+                                statuString = "Concluido";
+                                break;
+                        
+                            default:
+                                statuString = null;
+                                break;
+                            }
+
+                            System.out.println("Defina o nivel de urgencia da requisição");
+                            System.out.println("1. Imediato");
+                            System.out.println("2. Relevante");
+                            System.out.println("3. Pouco relevante");
+
+                            int urgenciaInt = scanner.nextInt();
+                            scanner.nextLine();
+                            String urgenciaString;
+                            switch (urgenciaInt) {
+                            case 1:
+                                urgenciaString = "Imediato";
+                                break;
+                            case 2:
+                                urgenciaString = "Relevante";
+                                break;
+                            case 3:
+                                urgenciaString = "Pouco relevante";
+                                break;
+                        
+                            default:
+                                urgenciaString = null;
+                                break;
+                            }
 
                             if (Data.verificarData(dataRequisicaoInput)) {
                                 Data dataRequisicao = new Data(dataRequisicaoInput);
-                                tecAdm.criarRequisicao(idChamadoCriarRequisicao, dataRequisicao, localRequisicao,
-                                        objetoRequisicao, statusRequisicao, nivelUrgenciaRequisicao);
+                                tecAdm.criarRequisicao(idChamado, dataRequisicao, localRequisicao, objetoRequisicao, statuString, urgenciaString);
                                 System.out.println("Requisição criada com sucesso!");
                             } else {
                                 System.out.println("Data inválida. Tente novamente.");

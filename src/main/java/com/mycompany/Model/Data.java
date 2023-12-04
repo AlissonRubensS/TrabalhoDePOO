@@ -89,4 +89,8 @@ public class Data {
             this.ano = ano;
         }
     }
+
+    public String toString(){
+        return (dia + "/" + mes + "/" + ano);
+    }
 }

@@ -1,24 +1,25 @@
 package com.mycompany.Model;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import com.mycompany.Controller.TecAdmController;
 
 public class TecAdm extends Funcionario {
     private Chamado chamado;
 
-    private List<Chamado> chamados = new ArrayList<>();
-    private List<Requisicao> requisicoes = new ArrayList<>();
+    private ArrayList<Chamado> chamados = TecAdmController.carregar_chamado();
+    private ArrayList<Requisicao> requisicoes = TecAdmController.carregar_requisicoes();
 
     public TecAdm() {
         //this.chamados = 
         super();
     }
 
-    public List<Chamado> getChamados() {
+    public ArrayList<Chamado> getChamados() {
         return chamados;
     }
 
-    public List<Requisicao> getRequisicoes() {
+    public ArrayList<Requisicao> getRequisicoes() {
         return requisicoes;
     }
 

@@ -32,6 +32,7 @@ public class DocenteView {
             System.out.println("0. Sair");
             System.out.print("Escolha uma opcao: ");
             escolha = scanner.nextInt();     
+            scanner.nextLine();
             System.out.println("*******************************************************************");    
 
             switch (escolha) {
@@ -40,9 +41,7 @@ public class DocenteView {
                 
                     System.out.println("\nCRIANDO UM CHAMADO\nPREENCHA OS DADOS");
                     
-                    System.out.print("ID do seu chamado: ");
-                    int id_cham = scanner.nextInt();
-                    scanner.nextLine();
+                    int id_cham = Funcionario.geraid();
                     if(Docente.verificarID(id_cham)==true){
                         System.out.println("ID ja existente!\n");
                         break;
@@ -77,16 +76,12 @@ public class DocenteView {
                 case 2:
                     
                     System.out.println("\nEXIBINDO UM CHAMADO\nPROCURAR O CHAMADO");
-                    System.out.print("ID do chamado: ");
-                    int id_cham3 = scanner.nextInt();
-                    scanner.nextLine();
 
-                    if(docente.exibirChamado(id_cham3)==null){
-                        System.out.println("Chamado inexistente!\n");
-                    }else{
-                        System.out.println("\nDADOS DO CHAMADO");
-                        System.out.println(docente.exibirChamado(id_cham3).getDetalhes()+"\n");
+                    ArrayList<String> chamadosStrings = docente.listarChamado();
+                    for (String chamadoString : chamadosStrings) {
+                        System.out.println(chamadoString);
                     }
+
                     break;
 
                 case 3:
