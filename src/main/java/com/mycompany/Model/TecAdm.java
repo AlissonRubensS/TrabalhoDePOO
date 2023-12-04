@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.mycompany.Controller.TecAdmController;
 
+import com.mycompany.Controller.TecAdmController;
+
 public class TecAdm extends Funcionario {
     private Chamado chamado;
 
@@ -93,6 +95,7 @@ public class TecAdm extends Funcionario {
 
                 requisicoes.add(novaRequisicao);
                 chamadoAssociado.setRequisicao(novaRequisicao);
+                TecAdmController.cadastrar_requisicao(novaRequisicao);
             } catch (Exception e) {
                 System.out.println("Erro ao criar requisição: " + e.getMessage());
             }

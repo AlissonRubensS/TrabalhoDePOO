@@ -3,6 +3,7 @@ package com.mycompany.Model;
 //import com.mycompany.Controller.*;
 import com.mycompany.Controller.File;
 //import java.io.IOException;
+
 import java.util.ArrayList;
 
 public class Funcionario extends Pessoa {

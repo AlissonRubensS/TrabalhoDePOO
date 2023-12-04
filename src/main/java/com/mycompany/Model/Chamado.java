@@ -100,12 +100,8 @@ public class Chamado {
     public String getDetalhes() {
         return "ID do Chamado: "+getId()+"\nData do chamado: "+getDataChamado().getDia()+"/"+getDataChamado().getMes()+"/"+getDataChamado().getAno()+"\nLocal: "+getLocal()+"\nObjeto: "+getObjeto()+"\nDescricao: "+getNovaDescricao();
     }
-    public Requisicao getRequisicao() {
-        return null;
-    }
+
     public void setStatus(String string) {
     }
-    public void setRequisicao(Requisicao novaRequisicao) {
-    }
-    
+
 }
