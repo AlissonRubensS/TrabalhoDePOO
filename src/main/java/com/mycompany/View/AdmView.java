@@ -36,7 +36,7 @@ public class AdmView {
                     CPF cpf;
                     Email email;
                     
-                    System.out.println("digite sua matricula:");
+                    System.out.println("digite a matricula do novo funcionario:");
                     id = scanner.nextInt();
                     scanner.nextLine();
                     
@@ -91,7 +91,7 @@ public class AdmView {
                     break;
                
                 case 3:
-                    System.out.println("Digite o ID do funcionario a ser removido:");
+                    System.out.println("Digite a matricula do funcionario a ser removido:");
                     int id_remover = scanner.nextInt();
                     scanner.nextLine();
                 

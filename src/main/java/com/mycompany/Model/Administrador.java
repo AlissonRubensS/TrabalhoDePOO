@@ -46,41 +46,47 @@ public class Administrador extends Funcionario {
 
     // MÉTODO PARA REMOVER UM FUNCIONÁRIO COM BASE NO ID
     public boolean removerFuncionario(int id) {
-    try {
-        File userFile = new File("src\\main\\java\\com\\mycompany\\Database\\Users.txt");
-        File tempFile = new File("src\\main\\java\\com\\mycompany\\Database\\tempUsers.txt");
-
-        BufferedReader reader = new BufferedReader(new FileReader(userFile));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
+        try {
+            File userFile = new File("src\\main\\java\\com\\mycompany\\Database\\Users.txt");
+            File tempFile = new File("src\\main\\java\\com\\mycompany\\Database\\tempUsers.txt");
+    
+            BufferedReader reader = new BufferedReader(new FileReader(userFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+    
             String linhaAtual;
-
+    
             while ((linhaAtual = reader.readLine()) != null) {
                 String[] dadosFuncionario = linhaAtual.split("-=-");
-
+    
                 int idFuncionario = Integer.parseInt(dadosFuncionario[0]);
-
+    
                 if (idFuncionario != id) {
                     writer.write(linhaAtual + System.getProperty("line.separator"));
                 }
             }
-
+    
             writer.close();
             reader.close();
-
-            // Renomeia o arquivo 
-            if (tempFile.renameTo(new File("src\\main\\java\\com\\mycompany\\Database\\Users.txt"))) {
-                System.out.println("Arquivo renomeado com sucesso!");
-            } else {
-                System.out.println("Falha ao renomear o arquivo!");
-            }           
-
+    
+            // Remover o arquivo original
+            if (!userFile.delete()) {
+                System.out.println("Falha ao deletar o arquivo original!");
+                return false;
+            }
+    
+            // Renomear o arquivo temporário para o nome do arquivo original
+            if (!tempFile.renameTo(userFile)) {
+                System.out.println("Falha ao renomear o arquivo temporário!");
+                return false;
+            }
+    
             return true; // Funcionário removido com sucesso
         } catch (IOException e) {
             e.printStackTrace();
             return false; // Falha 
         }
     }
+
 
     // MÉTODO PARA VALIDAR UMA REQUISIÇÃO
     public boolean validarRequisicao(int idRequisicao) {
