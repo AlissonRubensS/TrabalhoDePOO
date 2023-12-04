@@ -20,21 +20,35 @@ public class Funcionario extends Pessoa {
         int min = 1000;
         int max = 9999;
         int id = (int)Math.floor(Math.random() * (max - min + 1) + min);
-        String content = "";
         
-        try{
-            FileReader usersarq  = new FileReader("../Database/Users.txt");
-            BufferedReader readusers = new BufferedReader(usersarq);
-            String line ="";
+        public static String read(String path)
+            String content = "";
             try{
-                line = readusers.readLine();
-                while(line != null);
-                content += line;
-                line = readusers.readLine();
+                FileReader usersarq  = new FileReader("../Database/Users.txt");
+                BufferedReader readusers = new BufferedReader(usersarq);
+                String line ="";
+                try{
+                    line = readusers.readLine();
+                    while(line != null);
+                    content += line;
+                    line = readusers.readLine();
+                }
+                usersarq.close()
+            
+            } catch (IOException ex){
+                content = "ERRO: Não foi possivel ler o arquivo";
+            
+            }catch (FileNotFoundException ex){
+                content = "ERRO: Não foi possivel localizar o arquivo"
+            
+            }if(content.contains("ERRO")){
+                return "";
+            }else{
+                return conteudo;
             }
-            usersarq.close()
         }
     }
+
     // SETTER PARA DEFINIR O CARGO DO FUNCIONÁRIO COM VALIDAÇÃO
     public void setCargo(String cargo) {
         if ("D".equals(cargo) || "T".equals(cargo) || "A".equals(cargo)) {
